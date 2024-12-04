@@ -31,8 +31,10 @@
             "scaleInEditor": 8
         }
     },
+    "last.exportedFilePath": "C:/dev/derpy-dungeons/public/tilemaps",
     "last.imagePath": "C:/dev/derpy-dungeons/public/tilemaps",
     "map.height": 30,
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 16,
     "map.tileWidth": 16,

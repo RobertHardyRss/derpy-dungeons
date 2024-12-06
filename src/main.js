@@ -1,5 +1,7 @@
 import "./css/style.css";
 import Phaser from "phaser";
+import { Preloader } from "./scenes/preloader";
+import { Level01 } from "./scenes/level-01";
 
 const game = new Phaser.Game({
 	width: window.innerWidth,
@@ -16,5 +18,8 @@ const game = new Phaser.Game({
 			debug: true,
 		},
 	},
-	scene: [],
+	scene: [Preloader, Level01],
+	render: {
+		pixelArt: true,
+	},
 });

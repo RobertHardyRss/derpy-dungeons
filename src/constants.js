@@ -10,4 +10,5 @@ export const IMAGES = {
 	floor: "floor",
 	walls: "walls",
 	decor: "decor",
+	sprites: "sprites",
 };

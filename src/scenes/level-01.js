@@ -1,5 +1,6 @@
 import Phaser from "phaser";
 import { IMAGES, SCENES } from "../constants";
+import { Player } from "../game-objects/player";
 
 export class Level01 extends Phaser.Scene {
 	constructor() {
@@ -24,9 +25,16 @@ export class Level01 extends Phaser.Scene {
 		const wallLayer = map.createLayer("wall", wallTiles);
 
 		const decorTiles = map.addTilesetImage("high-walls", IMAGES.decor);
-		const decortLayer = map.createLayer("decor", decorTiles);
+		const decorLayer = map.createLayer("decor", decorTiles);
+
+		this.player = new Player(this, 50, 50);
 
 		//this.cameras.main.setOrigin(50, 50);
 		this.cameras.main.zoom = 3;
+		this.cameras.main.startFollow(this.player);
 	}
+
+    update() {
+        this.player.update();
+    }
 }

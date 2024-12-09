@@ -12,3 +12,5 @@ export const IMAGES = {
 	decor: "decor",
 	sprites: "sprites",
 };
+
+export const DEBUG = true;

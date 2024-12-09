@@ -2,6 +2,7 @@ import "./css/style.css";
 import Phaser from "phaser";
 import { Preloader } from "./scenes/preloader";
 import { Level01 } from "./scenes/level-01";
+import { DEBUG } from "./constants";
 
 const game = new Phaser.Game({
 	width: window.innerWidth,
@@ -15,7 +16,7 @@ const game = new Phaser.Game({
 		default: "arcade",
 		arcade: {
 			gravity: { x: 0, y: 0 },
-			debug: true,
+			debug: DEBUG,
 		},
 	},
 	scene: [Preloader, Level01],

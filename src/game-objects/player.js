@@ -11,6 +11,10 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 		this.scene.physics.add.existing(this);
 
 		this.keys = this.scene.input.keyboard.createCursorKeys();
+
+		// adjust hitbox
+		this.setSize(this.width * 0.5, this.height * 0.6);
+		this.setOffset(4, 10);
 	}
 
 	create() {}

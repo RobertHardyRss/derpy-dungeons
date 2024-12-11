@@ -1,5 +1,5 @@
 import Phaser from "phaser";
-import { IMAGES, SCENES } from "../constants";
+import { ANIMS, IMAGES, SCENES } from "../constants";
 
 export class Preloader extends Phaser.Scene {
 	constructor() {
@@ -19,6 +19,38 @@ export class Preloader extends Phaser.Scene {
 	}
 
 	create() {
+		this.setupAnimations();
 		this.scene.start(SCENES.level01);
+	}
+
+	setupAnimations() {
+		this.anims.create({
+			key: ANIMS.player.hit,
+			frames: [{ key: IMAGES.sprites, frame: "knight_f_hit_anim_f0.png" }],
+		});
+
+		this.anims.create({
+			key: ANIMS.player.idle,
+			frames: this.anims.generateFrameNames(IMAGES.sprites, {
+				prefix: "knight_f_idle_anim_f",
+				suffix: ".png",
+				start: 0,
+				end: 3,
+			}),
+			frameRate: 9,
+			repeat: -1,
+		});
+
+		this.anims.create({
+			key: ANIMS.player.run,
+			frames: this.anims.generateFrameNames(IMAGES.sprites, {
+				prefix: "knight_f_run_anim_f",
+				suffix: ".png",
+				start: 0,
+				end: 3,
+			}),
+			frameRate: 12,
+			repeat: -1,
+		});
 	}
 }

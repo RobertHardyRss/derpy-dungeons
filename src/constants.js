@@ -13,4 +13,12 @@ export const IMAGES = {
 	sprites: "sprites",
 };
 
-export const DEBUG = true;
+export const DEBUG = false;
+
+export const ANIMS = {
+	player: {
+		idle: "player-idle",
+		run: "player-run",
+		hit: "player-hit",
+	},
+};

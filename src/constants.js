@@ -22,3 +22,28 @@ export const ANIMS = {
 		hit: "player-hit",
 	},
 };
+
+export const MONSTERS = {
+	angel: "angel",
+	bigDemon: "big_demon",
+	bigZombie: "big_zombie",
+	chort: "chort",
+	plagueDoctor: "doc",
+	goblin: "goblin",
+	iceZombie: "ice_zombie",
+	imp: "imp",
+	maskedOrc: "masked_orc",
+	muddy: "muddy",
+	necromancer: "necromancer",
+	ogre: "ogre",
+	orcShaman: "orc_shaman",
+	orcWarrior: "orc_warrior",
+	pumpkinDude: "pumpkin_dude",
+	skeleton: "skelet",
+	slug: "slug",
+	swampy: "swampy",
+	tinySlug: "tiny_slug",
+	tinyZombie: "tiny_zombie",
+	wogol: "wogol",
+	zombie: "zombie",
+};

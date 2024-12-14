@@ -3,33 +3,44 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "level-01.tmx",
     "expandedProjectPaths": [
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
         "": {
             "scaleInDock": 2,
-            "scaleInEditor": 8
+            "scaleInEditor": 2
         },
         "#high-walls": {
             "scaleInEditor": 4
         },
         "level-01.tmx": {
-            "scale": 1,
-            "selectedLayer": 0,
+            "scale": 3,
+            "selectedLayer": 5,
             "viewCenter": {
-                "x": 188,
-                "y": 251
+                "x": 180.66666666666666,
+                "y": 355.16666666666663
             }
+        },
+        "level-01.tmx#creatures": {
+            "dynamicWrapping": true,
+            "scaleInDock": 2
         },
         "level-01.tmx#floors": {
             "scaleInDock": 2,
             "scaleInEditor": 4
         },
         "level-01.tmx#high-walls": {
+            "dynamicWrapping": false,
             "scaleInDock": 2,
             "scaleInEditor": 3
+        },
+        "level-01.tmx#interactbles": {
+            "scaleInDock": 1
+        },
+        "level-01.tmx#items": {
+            "scaleInDock": 2
         },
         "level-01.tmx#low-walls": {
             "scaleInDock": 3,
@@ -37,13 +48,14 @@
         }
     },
     "last.exportedFilePath": "C:/dev/derpy-dungeons/public/tilemaps",
-    "last.imagePath": "C:/dev/derpy-dungeons/public/tilemaps",
+    "last.imagePath": "C:/dev/derpy-dungeons/tiled",
     "map.height": 30,
     "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 16,
     "map.tileWidth": 16,
     "openFiles": [
+        "level-01.tmx"
     ],
     "project": "derpy-dungeon.tiled-project",
     "property.type": "bool",
@@ -54,5 +66,6 @@
     "tileset.tileSize": {
         "height": 16,
         "width": 16
-    }
+    },
+    "tileset.type": 1
 }

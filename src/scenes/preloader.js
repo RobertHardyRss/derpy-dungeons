@@ -33,7 +33,6 @@ export class Preloader extends Phaser.Scene {
 			MONSTERS.chort,
 			MONSTERS.plagueDoctor,
 			MONSTERS.goblin,
-			MONSTERS.iceZombie,
 			MONSTERS.imp,
 			MONSTERS.maskedOrc,
 			MONSTERS.ogre,
@@ -50,6 +49,7 @@ export class Preloader extends Phaser.Scene {
 		}
 
 		let monstersWithBasicAnimations = [
+			MONSTERS.iceZombie,
 			MONSTERS.muddy,
 			MONSTERS.necromancer,
 			MONSTERS.slug,

@@ -1,7 +1,10 @@
 import Phaser from "phaser";
-import { IMAGES, SCENES } from "../constants";
+import { IMAGES, SCENES, GIDS } from "../constants";
 import { Player } from "../game-objects/player";
-import { debugCollisions } from "../utility";
+import { debugCollisions, generateMonstersFromMap } from "../utility";
+import { Skeleton } from "../game-objects/monsters/skeleton";
+import { BigDemon } from "../game-objects/monsters/big-demon";
+import { BigZombie } from "../game-objects/monsters/big-zombie";
 
 export class Level01 extends Phaser.Scene {
 	constructor() {
@@ -31,16 +34,31 @@ export class Level01 extends Phaser.Scene {
 		const decorTiles = map.addTilesetImage("high-walls", IMAGES.decor);
 		const decorLayer = map.createLayer("decor", decorTiles);
 
+		this.monsters = generateMonstersFromMap(map);
 		this.player = new Player(this, 50, 50);
 
 		this.physics.add.collider(this.player, wallLayer);
+		this.physics.add.collider(this.monsters, wallLayer);
+		this.physics.add.overlap(this.monsters, this.monsters);
 
-		//this.cameras.main.setOrigin(50, 50);
+		this.physics.add.collider(
+			this.player,
+			this.monsters,
+			this.handlePlayerMonsterCollision,
+			undefined,
+			this
+		);
+
 		this.cameras.main.zoom = 3;
 		this.cameras.main.startFollow(this.player);
 	}
 
-	update() {
+	update(time, delta) {
 		this.player.update();
+		this.monsters.forEach((m) => m.update(time, delta));
+	}
+
+	handlePlayerMonsterCollision(player, monster) {
+		
 	}
 }

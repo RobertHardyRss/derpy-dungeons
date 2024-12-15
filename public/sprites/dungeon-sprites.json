@@ -1681,7 +1681,7 @@
 			"sourceSize": { "w": 16, "h": 23 }
 		},
 		{
-			"filename": "skelet_idle_anim_f0.png",
+			"filename": "skeleton_idle_anim_f0.png",
 			"frame": { "x": 1540, "y": 1, "w": 12, "h": 15 },
 			"rotated": false,
 			"trimmed": true,
@@ -1689,7 +1689,7 @@
 			"sourceSize": { "w": 16, "h": 16 }
 		},
 		{
-			"filename": "skelet_idle_anim_f1.png",
+			"filename": "skeleton_idle_anim_f1.png",
 			"frame": { "x": 1608, "y": 16, "w": 12, "h": 13 },
 			"rotated": false,
 			"trimmed": true,
@@ -1697,7 +1697,7 @@
 			"sourceSize": { "w": 16, "h": 16 }
 		},
 		{
-			"filename": "skelet_idle_anim_f2.png",
+			"filename": "skeleton_idle_anim_f2.png",
 			"frame": { "x": 1660, "y": 29, "w": 12, "h": 12 },
 			"rotated": false,
 			"trimmed": true,
@@ -1705,7 +1705,7 @@
 			"sourceSize": { "w": 16, "h": 16 }
 		},
 		{
-			"filename": "skelet_idle_anim_f3.png",
+			"filename": "skeleton_idle_anim_f3.png",
 			"frame": { "x": 1568, "y": 1, "w": 12, "h": 14 },
 			"rotated": false,
 			"trimmed": true,
@@ -1713,7 +1713,7 @@
 			"sourceSize": { "w": 16, "h": 16 }
 		},
 		{
-			"filename": "skelet_run_anim_f0.png",
+			"filename": "skeleton_run_anim_f0.png",
 			"frame": { "x": 1410, "y": 1, "w": 12, "h": 16 },
 			"rotated": false,
 			"trimmed": true,
@@ -1721,7 +1721,7 @@
 			"sourceSize": { "w": 16, "h": 16 }
 		},
 		{
-			"filename": "skelet_run_anim_f1.png",
+			"filename": "skeleton_run_anim_f1.png",
 			"frame": { "x": 1580, "y": 17, "w": 12, "h": 14 },
 			"rotated": false,
 			"trimmed": true,
@@ -1729,7 +1729,7 @@
 			"sourceSize": { "w": 16, "h": 16 }
 		},
 		{
-			"filename": "skelet_run_anim_f2.png",
+			"filename": "skeleton_run_anim_f2.png",
 			"frame": { "x": 1406, "y": 37, "w": 12, "h": 16 },
 			"rotated": false,
 			"trimmed": true,
@@ -1737,7 +1737,7 @@
 			"sourceSize": { "w": 16, "h": 16 }
 		},
 		{
-			"filename": "skelet_run_anim_f3.png",
+			"filename": "skeleton_run_anim_f3.png",
 			"frame": { "x": 1546, "y": 35, "w": 12, "h": 15 },
 			"rotated": false,
 			"trimmed": true,

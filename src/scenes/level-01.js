@@ -1,10 +1,8 @@
 import Phaser from "phaser";
-import { IMAGES, SCENES, GIDS } from "../constants";
+import { IMAGES, SCENES } from "../constants";
 import { Player } from "../game-objects/player";
 import { debugCollisions, generateMonstersFromMap } from "../utility";
-import { Skeleton } from "../game-objects/monsters/skeleton";
-import { BigDemon } from "../game-objects/monsters/big-demon";
-import { BigZombie } from "../game-objects/monsters/big-zombie";
+import { MonsterBase } from "../game-objects/monsters/base-classes/monster-base";
 
 export class Level01 extends Phaser.Scene {
 	constructor() {
@@ -16,6 +14,8 @@ export class Level01 extends Phaser.Scene {
 	}
 
 	create() {
+		this.scene.run(SCENES.gameUi);
+
 		const map = this.make.tilemap({
 			key: "level-01",
 			tileHeight: 16,
@@ -54,11 +54,15 @@ export class Level01 extends Phaser.Scene {
 	}
 
 	update(time, delta) {
-		this.player.update();
+		this.player.update(time, delta);
 		this.monsters.forEach((m) => m.update(time, delta));
 	}
 
+	/**
+	 * @param {Player} player
+	 * @param {MonsterBase} monster
+	 */
 	handlePlayerMonsterCollision(player, monster) {
-		
+		player.handleMonsterDamage(monster);
 	}
 }

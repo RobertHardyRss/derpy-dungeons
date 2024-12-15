@@ -70,6 +70,11 @@ export class Preloader extends Phaser.Scene {
 		});
 
 		this.anims.create({
+			key: ANIMS.player.dead,
+			frames: [{ key: IMAGES.sprites, frame: "skull.png" }],
+		});
+
+		this.anims.create({
 			key: ANIMS.player.idle,
 			frames: this.anims.generateFrameNames(IMAGES.sprites, {
 				prefix: "knight_f_idle_anim_f",
@@ -130,6 +135,20 @@ export class Preloader extends Phaser.Scene {
 				end: 3,
 			}),
 			frameRate: 12,
+			repeat: -1,
+		});
+	}
+
+	createUiAnimations() {
+		this.anims.create({
+			key: ANIMS.ui.coin,
+			frames: this.anims.generateFrameNames(IMAGES.sprites, {
+				prefix: "coin_anim_f",
+				suffix: ".png",
+				start: 0,
+				end: 3,
+			}),
+			frameRate: 9,
 			repeat: -1,
 		});
 	}

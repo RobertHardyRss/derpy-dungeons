@@ -2,14 +2,17 @@ import Phaser from "phaser";
 import { ANIMS, EVENTS, IMAGES, PLAYER_DAMAGE_COOLDOWN } from "../constants";
 import { MonsterBase } from "./monsters/base-classes/monster-base";
 import { sceneEvents } from "../events/event-center";
+import { Axe } from "./weapons/axe";
 
 export class Player extends Phaser.Physics.Arcade.Sprite {
-	constructor(scene, x, y) {
+	constructor(scene, x, y, weapons) {
 		super(scene, x, y, IMAGES.sprites, "knight_f_idle_anim_f0.png");
 
 		this.health = 100;
 		this.speed = 100;
 		this.knockBackCount = 0;
+		this.attackCoolDown = 0;
+
 		this.currentHealthState = HealthState.IDLE;
 		this.damageCounter = 0;
 
@@ -17,6 +20,10 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 		this.scene.physics.add.existing(this);
 
 		this.keys = this.scene.input.keyboard.createCursorKeys();
+
+		/** @type {Phaser.GameObjects.Group} */
+		this.weapons = weapons;
+		this.attackDirection = new Phaser.Math.Vector2(0, 0);
 
 		// adjust hitbox
 		this.setSize(this.width * 0.5, this.height * 0.6);
@@ -43,12 +50,18 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 		}
 	}
 
-	update(time, deltaTime) {
+	preUpdate(time, deltaTime) {
+		super.preUpdate(time, deltaTime);
 		this.manageHealthState(deltaTime);
 
 		if (this.currentHealthState === HealthState.DEAD) {
 			this.anims.play(ANIMS.player.dead, true);
 			return;
+		}
+
+		if (this.attackCoolDown != 0) {
+			this.attackCoolDown -= deltaTime;
+			this.attackCoolDown = Math.max(0, this.attackCoolDown);
 		}
 
 		if (this.knockBackCount > 0) {
@@ -57,24 +70,35 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 			return;
 		}
 
+		let direction = new Phaser.Math.Vector2(0, 0);
+
 		if (this.keys.left.isDown) {
-			this.setVelocityX(-this.speed);
+			direction.x = -1;
 			this.flipX = true;
 		} else if (this.keys.right.isDown) {
-			this.setVelocityX(this.speed);
+			direction.x = 1;
 			this.flipX = false;
 		} else {
-			this.setVelocityX(0);
+			direction.x = 0;
 		}
 
 		if (this.keys.up.isDown) {
-			this.setVelocityY(-this.speed);
+			direction.y = -1;
 		} else if (this.keys.down.isDown) {
-			this.setVelocityY(this.speed);
+			direction.y = 1;
 		} else {
-			this.setVelocityY(0);
+			direction.y = 0;
 		}
 
+		if (this.keys.space.isDown) {
+			// no moving when space is down
+			this.setVelocity(0, 0);
+			this.attackDirection = direction;
+			this.throwWeapon();
+			return;
+		}
+
+		this.setVelocity(direction.x * this.speed, direction.y * this.speed);
 		if (this.body.velocity.equals(Phaser.Math.Vector2.ZERO)) {
 			this.anims.play(ANIMS.player.idle, true);
 		} else {
@@ -82,9 +106,26 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 		}
 	}
 
+	throwWeapon() {
+		if (this.attackCoolDown !== 0) {
+			return;
+		}
+
+		let w = new Axe(
+			this.scene,
+			this.x,
+			this.y,
+			this.attackDirection,
+			this.flipX
+		);
+		this.attackCoolDown = w.coolDownTimer;
+		this.scene.playerWeapons.add(w);
+		console.log(w, this.scene.playerWeapons);
+	}
+
 	/** @param {MonsterBase} monster */
 	handleMonsterDamage(monster) {
-		if (this.currentHealthState !== HealthState.IDLE) {
+		if (this.currentHealthState !== HealthState.IDLE || !monster.active) {
 			return;
 		}
 

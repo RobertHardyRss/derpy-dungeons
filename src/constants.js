@@ -12,7 +12,9 @@ export const SCENES = {
 export const EVENTS = {
 	player: {
 		healthChanged: "dd-player-health-changed",
+		xpChanged: "dd-player-xp-changed",
 	},
+	monsterDeath: "dd-monster-death",
 };
 
 export const IMAGES = {
@@ -60,4 +62,8 @@ export const MONSTERS = {
 	tinyZombie: "tiny_zombie",
 	wogol: "wogol",
 	zombie: "zombie",
+};
+
+export const WEAPONS = {
+	axe: "weapon_axe.png",
 };

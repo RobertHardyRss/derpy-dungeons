@@ -1,5 +1,7 @@
 import Phaser from "phaser";
-import { IMAGES } from "../../../constants";
+import { EVENTS, IMAGES } from "../../../constants";
+import { WeaponBase } from "../../weapons/base-classes/weapon-base";
+import { sceneEvents } from "../../../events/event-center";
 
 export class MonsterBase extends Phaser.Physics.Arcade.Sprite {
 	constructor(scene, x, y, frame, typeName) {
@@ -41,7 +43,11 @@ export class MonsterBase extends Phaser.Physics.Arcade.Sprite {
 		super.destroy(fromScene);
 	}
 
-	update(time, delta) {
+	preUpdate(time, delta) {
+		super.preUpdate(time, delta);
+		if (!this.active) {
+			return;
+		}
 		this.move();
 
 		if (this.body.velocity.x < 0) {
@@ -51,7 +57,6 @@ export class MonsterBase extends Phaser.Physics.Arcade.Sprite {
 		}
 
 		this.attack(delta);
-		super.update(time, delta);
 	}
 
 	handleTileCollision(monster, tile) {
@@ -59,6 +64,25 @@ export class MonsterBase extends Phaser.Physics.Arcade.Sprite {
 			return;
 		}
 		monster.updateMovement();
+	}
+
+	/**
+	 * @param {MonsterBase} monster
+	 * @param {WeaponBase} weapon
+	 * @returns
+	 */
+	handleWeaponCollision(weapon) {
+		if (!weapon.active) {
+			return;
+		}
+
+		this.hitPoints -= weapon.damage;
+		if (this.hitPoints <= 0) {
+			sceneEvents.emit(EVENTS.monsterDeath, this.xp);
+			this.setActive(false);
+			this.setVisible(false);
+		}
+		return Math.max(0, this.hitPoints);
 	}
 
 	updateMovement() {

@@ -7,13 +7,12 @@ export class MonsterFullAnimation extends MonsterBase {
 		this.anims.play(`${this.typeName}_idle`, true);
 	}
 
-	update(time, delta) {
+	preUpdate(time, delta) {
+		super.preUpdate(time, delta);
 		if (this.body.velocity.equals(Phaser.Math.Vector2.ZERO)) {
 			this.anims.play(`${this.typeName}_idle`, true);
 		} else {
 			this.anims.play(`${this.typeName}_run`, true);
 		}
-
-		super.update(time, delta);
 	}
 }

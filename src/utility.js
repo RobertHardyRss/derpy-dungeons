@@ -1,4 +1,4 @@
-import Phaser from "phaser";
+import Phaser, { Physics } from "phaser";
 import { DEBUG, IMAGES, MONSTERS } from "./constants";
 import { Skeleton } from "./game-objects/monsters/skeleton";
 import { BigDemon } from "./game-objects/monsters/big-demon";
@@ -21,38 +21,38 @@ export function debugCollisions(scene, layer) {
 	});
 }
 
-/** @param {Phaser.Tilemaps.Tilemap } map */
-export function generateMonstersFromMap(map) {
-	return map.createFromObjects("spawns", [
+/**
+ * @param {Phaser.Tilemaps.Tilemap } map
+ * @param {Phaser.GameObjects.Group } map
+ */
+export function generateMonstersFromMap(map, group) {
+	let monsters = map.createFromObjects("spawns", [
 		{
 			name: MONSTERS.skeleton,
 			key: IMAGES.sprites,
-			frame: `${MONSTERS.skeleton}_idle_anim_f0.png`,
 			classType: Skeleton,
 		},
 		{
 			name: MONSTERS.bigDemon,
 			key: IMAGES.sprites,
-			frame: `${MONSTERS.bigDemon}_idle_anim_f0.png`,
 			classType: BigDemon,
 		},
 		{
 			name: MONSTERS.bigZombie,
 			key: IMAGES.sprites,
-			frame: `${MONSTERS.bigZombie}_idle_anim_f0.png`,
 			classType: BigZombie,
 		},
 		{
 			name: MONSTERS.muddy,
 			key: IMAGES.sprites,
-			frame: `${MONSTERS.muddy}_anim_f0.png`,
 			classType: Muddy,
 		},
 		{
 			name: MONSTERS.slug,
 			key: IMAGES.sprites,
-			frame: `${MONSTERS.slug}_anim_f0.png`,
 			classType: Slug,
 		},
 	]);
+
+	monsters.forEach((m) => group.add(m));
 }

@@ -39,7 +39,7 @@ export const MONSTERS = {
 	orcShaman: "orc_shaman",
 	orcWarrior: "orc_warrior",
 	pumpkinDude: "pumpkin_dude",
-	skeleton: "skelet",
+	skeleton: "skeleton",
 	slug: "slug",
 	swampy: "swampy",
 	tinySlug: "tiny_slug",

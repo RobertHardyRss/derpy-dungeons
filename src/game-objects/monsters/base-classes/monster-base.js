@@ -1,7 +1,7 @@
 import Phaser from "phaser";
-import { EVENTS, IMAGES } from "../../../constants";
+import { IMAGES } from "../../../constants";
 import { WeaponBase } from "../../weapons/base-classes/weapon-base";
-import { sceneEvents } from "../../../events/event-center";
+import { sceneEvents, EVENTS } from "../../../events/event-center";
 
 export class MonsterBase extends Phaser.Physics.Arcade.Sprite {
 	constructor(scene, x, y, frame, typeName) {

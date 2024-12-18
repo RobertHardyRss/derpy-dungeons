@@ -319,6 +319,66 @@
                  "width":16,
                  "x":399,
                  "y":256
+                }, 
+                {
+                 "gid":466,
+                 "height":16,
+                 "id":16,
+                 "name":"lever",
+                 "properties":[
+                        {
+                         "name":"targets",
+                         "type":"int",
+                         "value":18
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":48,
+                 "y":112
+                }, 
+                {
+                 "gid":444,
+                 "height":16,
+                 "id":17,
+                 "name":"chest",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":80,
+                 "y":112
+                }, 
+                {
+                 "gid":459,
+                 "height":16,
+                 "id":18,
+                 "name":"floor_spikes",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":64,
+                 "y":176
+                }, 
+                {
+                 "gid":442,
+                 "height":16,
+                 "id":19,
+                 "name":"button_blue",
+                 "properties":[
+                        {
+                         "name":"targets",
+                         "type":"int",
+                         "value":18
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":112,
+                 "y":112
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -327,7 +387,7 @@
          "y":0
         }],
  "nextlayerid":7,
- "nextobjectid":16,
+ "nextobjectid":20,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.11.0",

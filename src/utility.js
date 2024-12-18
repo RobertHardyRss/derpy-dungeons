@@ -1,10 +1,14 @@
 import Phaser, { Physics } from "phaser";
-import { DEBUG, IMAGES, MONSTERS } from "./constants";
+import { DEBUG, IMAGES, INTERACTABLES, MONSTERS } from "./constants";
 import { Skeleton } from "./game-objects/monsters/skeleton";
 import { BigDemon } from "./game-objects/monsters/big-demon";
 import { BigZombie } from "./game-objects/monsters/big-zombie";
 import { Muddy } from "./game-objects/monsters/muddy";
 import { Slug } from "./game-objects/monsters/slug";
+import { Lever } from "./game-objects/interactables/lever";
+import { BlueButton } from "./game-objects/interactables/blue-button";
+import { RedButton } from "./game-objects/interactables/red-button";
+import { FloorSpikes } from "./game-objects/interactables/floor-spikes";
 
 /** @param {Phaser.Scene} scene */
 /** @param {Phaser.Tilemaps.TilemapLayer} layer */
@@ -55,4 +59,69 @@ export function generateMonstersFromMap(map, group) {
 	]);
 
 	monsters.forEach((m) => group.add(m));
+}
+
+/**
+ * @param {Phaser.Tilemaps.Tilemap } map
+ * @param {Phaser.GameObjects.Group } map
+ */
+export function generateCollidableInteractablesFromMap(map, group) {
+	let interactables = map.createFromObjects(
+		"interactables",
+		[
+			{
+				name: INTERACTABLES.lever,
+				key: IMAGES.sprites,
+				classType: Lever,
+			},
+		],
+		false
+	);
+
+	interactables.forEach((m) => group.add(m));
+}
+
+/**
+ * @param {Phaser.Tilemaps.Tilemap } map
+ * @param {Phaser.GameObjects.Group } map
+ */
+export function generateOverlappableInteractablesFromMap(map, group) {
+	let interactables = map.createFromObjects(
+		"interactables",
+		[
+			{
+				name: INTERACTABLES.buttonBlue,
+				key: IMAGES.sprites,
+				classType: BlueButton,
+			},
+			{
+				name: INTERACTABLES.buttonRed,
+				key: IMAGES.sprites,
+				classType: RedButton,
+			},
+		],
+		false
+	);
+
+	interactables.forEach((m) => group.add(m));
+}
+
+/**
+ * @param {Phaser.Tilemaps.Tilemap } map
+ * @param {Phaser.GameObjects.Group } map
+ */
+export function generateTraps(map, group) {
+	let interactables = map.createFromObjects(
+		"interactables",
+		[
+			{
+				name: INTERACTABLES.floorSpikes,
+				key: IMAGES.sprites,
+				classType: FloorSpikes,
+			},
+		],
+		false
+	);
+
+	interactables.forEach((m) => group.add(m));
 }

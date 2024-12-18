@@ -1,6 +1,6 @@
 import Phaser from "phaser";
-import { ANIMS, EVENTS, IMAGES, SCENES } from "../constants";
-import { sceneEvents } from "../events/event-center";
+import { ANIMS, IMAGES, SCENES } from "../constants";
+import { sceneEvents, EVENTS } from "../events/event-center";
 
 export class GameUi extends Phaser.Scene {
 	constructor() {

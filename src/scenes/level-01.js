@@ -1,9 +1,15 @@
 import Phaser from "phaser";
 import { IMAGES, SCENES } from "../constants";
 import { Player } from "../game-objects/player";
-import { debugCollisions, generateMonstersFromMap } from "../utility";
+import {
+	debugCollisions,
+	generateCollidableInteractablesFromMap,
+	generateMonstersFromMap,
+	generateTraps,
+} from "../utility";
 import { MonsterBase } from "../game-objects/monsters/base-classes/monster-base";
 import { WeaponBase } from "../game-objects/weapons/base-classes/weapon-base";
+import { Lever } from "../game-objects/interactables/lever";
 
 export class Level01 extends Phaser.Scene {
 	constructor() {
@@ -38,6 +44,15 @@ export class Level01 extends Phaser.Scene {
 		this.monsters = this.add.group();
 		generateMonstersFromMap(map, this.monsters);
 
+		this.collideInteractable = this.add.group();
+		generateCollidableInteractablesFromMap(map, this.collideInteractable);
+		
+		this.overlapInteractable = this.add.group();
+		generateCollidableInteractablesFromMap(map, this.overlapInteractable);
+		
+		this.traps = this.add.group();
+		generateTraps(map, this.traps);
+
 		this.playerWeapons = this.add.group();
 		this.player = new Player(this, 50, 50, this.playerWeapons);
 
@@ -50,6 +65,14 @@ export class Level01 extends Phaser.Scene {
 			undefined,
 			this
 		);
+		this.physics.add.collider(
+			this.player,
+			this.collideInteractable,
+			this.handleCollideInteractable,
+			undefined,
+			this
+		);
+		
 		this.physics.add.overlap(
 			this.playerWeapons,
 			this.monsters,
@@ -95,5 +118,13 @@ export class Level01 extends Phaser.Scene {
 	handleWeaponWallCollision(weapon) {
 		this.playerWeapons.remove(weapon);
 		weapon.destroy();
+	}
+
+	/**
+	 * @param {Player} player 
+	 * @param {Lever | Chest} interactable 
+	 */
+	handleCollideInteractable(player, interactable) {
+		interactable.toggle();
 	}
 }

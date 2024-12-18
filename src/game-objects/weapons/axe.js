@@ -12,8 +12,12 @@ export class Axe extends ThrownWeapon {
 	constructor(scene, x, y, attackDirection, flipX) {
 		super(scene, x, y, WEAPONS.axe, attackDirection, flipX);
 		this.damage = 10;
-		this.speed = 150;
-		this.coolDownTimer = 2000;
+		this.speed = 200;
+		this.coolDownTimer = 1000;
+
+		// adjust hitbox
+		this.setSize(this.width * 0.5, this.width * 0.5);
+		this.setOffset(5, -3);
 
 		this.init();
 

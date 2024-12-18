@@ -25,6 +25,7 @@ export class Preloader extends Phaser.Scene {
 
 	setupAnimations() {
 		this.createPlayerAnimations();
+		this.createInteractionAnimations();
 
 		let monstersWithIdleAnimations = [
 			MONSTERS.angel,
@@ -150,6 +151,49 @@ export class Preloader extends Phaser.Scene {
 			}),
 			frameRate: 9,
 			repeat: -1,
+		});
+	}
+
+	createInteractionAnimations() {
+		this.anims.create({
+			key: ANIMS.chest.closed,
+			frames: [{ key: IMAGES.sprites, frame: "chest_empty_open_anim_f0.png" }],
+		});
+
+		this.anims.create({
+			key: ANIMS.chest.open,
+			frames: this.anims.generateFrameNames(IMAGES.sprites, {
+				prefix: "chest_empty_open_anim_f",
+				suffix: ".png",
+				start: 0,
+				end: 2,
+			}),
+			frameRate: 5,
+			repeat: 0,
+		});
+
+		this.anims.create({
+			key: ANIMS.floorSpikes.up,
+			frames: this.anims.generateFrameNames(IMAGES.sprites, {
+				prefix: "floor_spikes_anim_f",
+				suffix: ".png",
+				start: 0,
+				end: 3,
+			}),
+			frameRate: 9,
+			repeat: 0,
+		});
+
+		this.anims.create({
+			key: ANIMS.floorSpikes.down,
+			frames: this.anims.generateFrameNames(IMAGES.sprites, {
+				prefix: "floor_spikes_anim_f",
+				suffix: ".png",
+				start: 3,
+				end: 0,
+			}),
+			frameRate: 9,
+			repeat: 0,
 		});
 	}
 }

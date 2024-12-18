@@ -1,7 +1,7 @@
 import Phaser from "phaser";
-import { ANIMS, EVENTS, IMAGES, PLAYER_DAMAGE_COOLDOWN } from "../constants";
+import { ANIMS, IMAGES, PLAYER_DAMAGE_COOLDOWN } from "../constants";
 import { MonsterBase } from "./monsters/base-classes/monster-base";
-import { sceneEvents } from "../events/event-center";
+import { sceneEvents, EVENTS } from "../events/event-center";
 import { Axe } from "./weapons/axe";
 
 export class Player extends Phaser.Physics.Arcade.Sprite {

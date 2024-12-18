@@ -1,4 +1,4 @@
-export const DEBUG = false;
+export const DEBUG = true;
 export const PLAYER_DAMAGE_COOLDOWN = 250;
 
 export const SCENES = {
@@ -7,14 +7,6 @@ export const SCENES = {
 	gameOver: "game-over",
 	level01: "level-01",
 	level02: "level-02",
-};
-
-export const EVENTS = {
-	player: {
-		healthChanged: "dd-player-health-changed",
-		xpChanged: "dd-player-xp-changed",
-	},
-	monsterDeath: "dd-monster-death",
 };
 
 export const IMAGES = {
@@ -37,6 +29,14 @@ export const ANIMS = {
 		healthEmpty: "ui_heart_empty.png",
 		coin: "coin-spin",
 	},
+	chest: {
+		closed: "chest-closed",
+		open: "chest-open",
+	},
+	floorSpikes: {
+		up: "floor_spikes-up",
+		down: "floor_spikes_down"
+	}
 };
 
 export const MONSTERS = {
@@ -66,4 +66,12 @@ export const MONSTERS = {
 
 export const WEAPONS = {
 	axe: "weapon_axe.png",
+};
+
+export const INTERACTABLES = {
+	floorSpikes: "floor_spikes",
+	lever: "lever",
+	chest: "chest",
+	buttonBlue: "button_blue",
+	buttonRed: "button_red",
 };

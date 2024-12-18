@@ -170,7 +170,7 @@
                  "gid":292,
                  "height":36,
                  "id":4,
-                 "name":"big_zombie",
+                 "name":"big_demon",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -187,8 +187,8 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":178.666666666667,
-                 "y":135.333333333333
+                 "x":178.667,
+                 "y":135.333
                 }, 
                 {
                  "gid":328,
@@ -200,7 +200,7 @@
                  "visible":true,
                  "width":16,
                  "x":176,
-                 "y":79.6666666666667
+                 "y":79.6667
                 }],
          "opacity":1,
          "type":"objectgroup",

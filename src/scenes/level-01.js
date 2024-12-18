@@ -3,6 +3,7 @@ import { IMAGES, MONSTERS, SCENES } from "../constants";
 import { Player } from "../game-objects/player";
 import { debugCollisions } from "../utility";
 import { Skeleton } from "../game-objects/monsters/skeleton";
+import { BigZombie } from "../game-objects/monsters/big_zombie";
 
 export class Level01 extends Phaser.Scene {
 	constructor() {
@@ -30,17 +31,24 @@ export class Level01 extends Phaser.Scene {
 		wallLayer.setCollisionByProperty({ collides: true });
 		debugCollisions(this, wallLayer);
 
-
 		this.monsters = this.add.group();
 
 		let monsterObjects = map.createFromObjects("spawns", [
 			{
 				name: MONSTERS.skeleton,
 				key: IMAGES.sprites,
-				classType: Skeleton
-			}
+				classType: Skeleton,
+			},
+			{
+				name: MONSTERS.bigZombie,
+				key: IMAGES.sprites,
+				classType: BigZombie,
+			},
 		]);
 
+		for (let mo of monsterObjects) {
+			this.monsters.add(mo);
+		}
 
 		this.player = new Player(this, 50, 50);
 

@@ -663,7 +663,7 @@
   <object id="1" name="player-start" gid="290" x="111" y="94" width="16" height="28"/>
   <object id="2" name="skeleton" gid="328" x="224" y="94" width="16" height="16"/>
   <object id="3" name="big_zombie" gid="293" x="169" y="301" width="32" height="36"/>
-  <object id="4" name="big_zombie" gid="292" x="171" y="430" width="32" height="36"/>
+  <object id="4" name="big_demon" gid="292" x="171" y="430" width="32" height="36"/>
   <object id="8" name="skeleton" gid="328" x="178.667" y="135.333" width="16" height="16"/>
   <object id="9" name="skeleton" gid="328" x="176" y="79.6667" width="16" height="16"/>
  </objectgroup>

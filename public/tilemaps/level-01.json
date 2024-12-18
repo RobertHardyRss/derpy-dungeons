@@ -355,6 +355,12 @@
                  "height":16,
                  "id":18,
                  "name":"floor_spikes",
+                 "properties":[
+                        {
+                         "name":"target",
+                         "type":"int",
+                         "value":18
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,

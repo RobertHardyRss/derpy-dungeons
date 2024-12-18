@@ -16,11 +16,11 @@
             "scaleInEditor": 4
         },
         "level-01.tmx": {
-            "scale": 2,
-            "selectedLayer": 3,
+            "scale": 4,
+            "selectedLayer": 5,
             "viewCenter": {
-                "x": 154.5,
-                "y": 255.5
+                "x": 151.125,
+                "y": 147.5
             }
         },
         "level-01.tmx#creatures": {

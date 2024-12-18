@@ -684,7 +684,11 @@
    </properties>
   </object>
   <object id="17" name="chest" gid="444" x="80" y="112" width="16" height="16"/>
-  <object id="18" name="floor_spikes" gid="459" x="64" y="176" width="16" height="16"/>
+  <object id="18" name="floor_spikes" gid="459" x="64" y="176" width="16" height="16">
+   <properties>
+    <property name="target" type="int" value="18"/>
+   </properties>
+  </object>
   <object id="19" name="button_blue" gid="442" x="112" y="112" width="16" height="16">
    <properties>
     <property name="targets" type="int" value="18"/>

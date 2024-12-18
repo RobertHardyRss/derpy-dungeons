@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="8">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="10">
  <editorsettings>
   <export target="../public/tilemaps/level-01.tmj" format="json"/>
  </editorsettings>
@@ -518,7 +518,7 @@
    <image source="weapon_waraxe.png" width="12" height="23"/>
   </tile>
  </tileset>
- <tileset firstgid="440" name="interactbles" tilewidth="32" tileheight="32" tilecount="12" columns="0">
+ <tileset firstgid="438" name="interactbles" tilewidth="32" tileheight="32" tilecount="12" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="4">
    <image source="button_blue_up.png" width="16" height="16"/>
@@ -661,14 +661,16 @@
  </layer>
  <objectgroup id="4" name="spawns">
   <object id="1" name="player-start" gid="290" x="111" y="94" width="16" height="28"/>
-  <object id="2" name="monster" gid="328" x="224" y="94" width="16" height="16"/>
-  <object id="3" name="monster" gid="293" x="169" y="301" width="32" height="36"/>
-  <object id="4" name="monster" gid="292" x="171" y="430" width="32" height="36"/>
+  <object id="2" name="skeleton" gid="328" x="224" y="94" width="16" height="16"/>
+  <object id="3" name="big_zombie" gid="293" x="169" y="301" width="32" height="36"/>
+  <object id="4" name="big_zombie" gid="292" x="171" y="430" width="32" height="36"/>
+  <object id="8" name="skeleton" gid="328" x="178.667" y="135.333" width="16" height="16"/>
+  <object id="9" name="skeleton" gid="328" x="176" y="79.6667" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="5" name="items">
   <object id="7" name="weapon" gid="420" x="323" y="437" width="9" height="30"/>
  </objectgroup>
  <objectgroup id="6" name="interactables">
-  <object id="6" name="chest" gid="446" x="399" y="256" width="16" height="16"/>
+  <object id="6" name="chest" gid="444" x="399" y="256" width="16" height="16"/>
  </objectgroup>
 </map>

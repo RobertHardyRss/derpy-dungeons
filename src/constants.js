@@ -1,4 +1,4 @@
-export const DEBUG = true;
+export const DEBUG = false;
 export const PLAYER_DAMAGE_COOLDOWN = 250;
 
 export const SCENES = {

@@ -1,5 +1,5 @@
 import Phaser from "phaser";
-import { ANIMS, IMAGES, MONSTERS, SCENES } from "../constants";
+import { ANIMS, AUDIO, IMAGES, MONSTERS, SCENES } from "../constants";
 
 export class Preloader extends Phaser.Scene {
 	constructor() {
@@ -18,6 +18,31 @@ export class Preloader extends Phaser.Scene {
 		);
 
 		this.load.bitmapFont("arcade", "/fonts/arcade.png", "/fonts/arcade.xml");
+
+		//audio
+		this.load.audio(AUDIO.button, "/sfx/button.wav");
+		this.load.audio(AUDIO.chest, "/sfx/chest.wav");
+		this.load.audio(AUDIO.doorClose, "/sfx/door_close.mp3");
+		this.load.audio(AUDIO.doorOpen, "/sfx/door_open.mp3");
+		this.load.audio(AUDIO.lever, "/sfx/lever.wav");
+		this.load.audio(AUDIO.monsterDamage[0], "/sfx/monster_damage_1.wav");
+		this.load.audio(AUDIO.monsterDamage[1], "/sfx/monster_damage_2.wav");
+		this.load.audio(AUDIO.monsterDamage[2], "/sfx/monster_damage_3.wav");
+		this.load.audio(AUDIO.monsterDeath, "/sfx/monster_death.wav");
+		this.load.audio(AUDIO.playerDamage[0], "/sfx/player_damage_1.wav");
+		this.load.audio(AUDIO.playerDamage[1], "/sfx/player_damage_2.wav");
+		this.load.audio(AUDIO.playerDamage[2], "/sfx/player_damage_3.wav");
+		this.load.audio(AUDIO.playerDamage[3], "/sfx/player_damage_4.wav");
+		this.load.audio(AUDIO.playerDamage[4], "/sfx/player_damage_5.wav");
+		this.load.audio(AUDIO.playerDamage[5], "/sfx/player_damage_6.wav");
+		this.load.audio(AUDIO.playerAttackHit, "/sfx/axe_hit.wav");
+		this.load.audio(AUDIO.playerAttackMiss, "/sfx/axe_miss.wav");
+		this.load.audio(AUDIO.playerDeath, "/sfx/death.wav");
+		this.load.audio(AUDIO.playerWalk[0], "/sfx/player_walk_stone_1.wav");
+		this.load.audio(AUDIO.playerWalk[1], "/sfx/player_walk_stone_2.wav");
+		this.load.audio(AUDIO.playerWalk[2], "/sfx/player_walk_stone_3.wav");
+		this.load.audio(AUDIO.music, "/music/Goblins_Den.wav");
+		this.load.audio(AUDIO.heal, "/sfx/heal.wav");
 	}
 
 	create() {

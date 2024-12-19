@@ -1,5 +1,5 @@
 import Phaser from "phaser";
-import { ANIMS, IMAGES } from "../../constants";
+import { ANIMS, AUDIO, IMAGES } from "../../constants";
 import { EVENTS, sceneEvents } from "../../events/event-center";
 
 export class Door extends Phaser.Physics.Arcade.Sprite {
@@ -33,9 +33,11 @@ export class Door extends Phaser.Physics.Arcade.Sprite {
 		if (this.isOpened) {
 			this.setFrame("doors_leaf_open.png");
 			this.body.checkCollision.none = true;
+			this.scene.sound.play(AUDIO.doorOpen);
 		} else {
 			this.setFrame("doors_leaf_closed.png");
 			this.body.checkCollision.none = false;
+			this.scene.sound.play(AUDIO.doorClose);
 		}
 	}
 }

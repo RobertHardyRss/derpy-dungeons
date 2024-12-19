@@ -1,5 +1,5 @@
 import Phaser from "phaser";
-import { IMAGES, SCENES } from "../constants";
+import { AUDIO, IMAGES, SCENES } from "../constants";
 import { Player } from "../game-objects/player";
 import {
 	debugCollisions,
@@ -32,6 +32,7 @@ export class Level01 extends Phaser.Scene {
 	}
 
 	create() {
+		this.sound.play(AUDIO.music, { loop: true, volume: 0.5 });
 		this.scene.run(SCENES.gameUi);
 
 		const map = this.make.tilemap({
@@ -162,6 +163,7 @@ export class Level01 extends Phaser.Scene {
 	 * @param {MonsterBase} monster
 	 */
 	handleWeaponMonsterCollision(weapon, monster) {
+		this.sound.play(AUDIO.playerAttackHit);
 		let hp = monster.handleWeaponCollision(weapon);
 		this.playerWeapons.remove(weapon);
 		weapon.destroy();
@@ -173,6 +175,7 @@ export class Level01 extends Phaser.Scene {
 	}
 
 	handleWeaponWallCollision(weapon) {
+		this.sound.play(AUDIO.playerAttackMiss);
 		this.playerWeapons.remove(weapon);
 		weapon.destroy();
 	}

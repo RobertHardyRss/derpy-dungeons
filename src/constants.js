@@ -78,3 +78,27 @@ export const ITEMS = {
 	flaskSmall: "flask_small",
 	flaskBig: "flask_big",
 };
+
+export const AUDIO = {
+	chest: "chest",
+	lever: "lever",
+	button: "button",
+	doorOpen: "door-open",
+	doorClose: "door-close",
+	playerDamage: [
+		"player-damage-1",
+		"player-damage-2",
+		"player-damage-3",
+		"player-damage-4",
+		"player-damage-5",
+		"player-damage-6",
+	],
+	playerDeath: "player-death",
+	playerWalk: ["player-walk-1", "player-walk-2", "player-walk-3"],
+	playerAttackHit: "player-attack-hit",
+	playerAttackMiss: "player-attack-miss",
+	monsterDamage: ["monster-damage-1", "monster-damage-2", "monster-damage-3"],
+	monsterDeath: "monster-death",
+	music: "music",
+	heal: "heal",
+};

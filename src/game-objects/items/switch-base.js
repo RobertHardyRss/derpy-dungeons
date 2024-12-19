@@ -1,6 +1,6 @@
 import Phaser from "phaser";
 import { SwitchStates } from "./switch-states";
-import { IMAGES } from "../../constants";
+import { AUDIO, IMAGES } from "../../constants";
 import { EVENTS, sceneEvents } from "../../events/event-center";
 
 export class SwitchBase extends Phaser.GameObjects.Sprite {
@@ -16,6 +16,7 @@ export class SwitchBase extends Phaser.GameObjects.Sprite {
 		this.currentState = switchStates.off;
 		this.toggleCooldown = 1000;
 		this.toggleTimer = 0;
+		this.sound = AUDIO.lever;
 
 		/** this will be used when triggered to indicate the target ID of the level  */
 		this.targets = null;
@@ -35,6 +36,7 @@ export class SwitchBase extends Phaser.GameObjects.Sprite {
 			return;
 		}
 
+		this.scene.sound.play(this.sound, { volume: 0.2 });
 		this.toggleTimer = this.toggleCooldown;
 
 		if (this.currentState == this.states.off) {

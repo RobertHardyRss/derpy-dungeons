@@ -1,6 +1,6 @@
 //@ts-check
 import Phaser from "phaser";
-import { ANIMS, IMAGES, PLAYER_DAMAGE_COOLDOWN } from "../constants";
+import { ANIMS, AUDIO, IMAGES, PLAYER_DAMAGE_COOLDOWN } from "../constants";
 import { MonsterBase } from "./monsters/base-classes/monster-base";
 import { sceneEvents, EVENTS } from "../events/event-center";
 import { Axe } from "./weapons/axe";
@@ -143,6 +143,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 		this.health -= source.strength;
 		if (this.health <= 0) {
 			this.currentHealthState = HealthState.DEAD;
+			this.scene.sound.play(AUDIO.playerDeath);
 		}
 
 		if (knockback) {
@@ -156,7 +157,10 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 			knockBackVector.normalize().scale(200);
 			this.setVelocity(knockBackVector.x, knockBackVector.y);
 		}
-
+		this.scene.sound.play(
+			AUDIO.playerDamage[Phaser.Math.Between(0, AUDIO.playerDamage.length - 1)],
+			{ volume: 0.3 }
+		);
 		sceneEvents.emit(EVENTS.player.healthChanged, this.health);
 	}
 
@@ -164,6 +168,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 	handlePlayerHealing(amount) {
 		// cannot go over 100 health
 		this.health = Math.min(100, this.health + amount);
+		this.scene.sound.play(AUDIO.heal);
 		sceneEvents.emit(EVENTS.player.healthChanged, this.health);
 	}
 }

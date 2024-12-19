@@ -29,7 +29,7 @@ export class Level01 extends Phaser.Scene {
 	}
 
 	preload() {
-		this.load.tilemapTiledJSON("level-01", "/tilemaps/level-01.json");
+		this.load.tilemapTiledJSON("level-01", "tilemaps/level-01.json");
 	}
 
 	create() {

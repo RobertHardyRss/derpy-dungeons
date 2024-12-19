@@ -9,18 +9,18 @@
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
         "": {
-            "scaleInDock": 2,
+            "scaleInDock": 1,
             "scaleInEditor": 2
         },
         "#high-walls": {
             "scaleInEditor": 4
         },
         "level-01.tmx": {
-            "scale": 4,
-            "selectedLayer": 5,
+            "scale": 3,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": 151.125,
-                "y": 147.5
+                "x": 197.5,
+                "y": 348.3333333333333
             }
         },
         "level-01.tmx#creatures": {
@@ -37,9 +37,11 @@
             "scaleInEditor": 3
         },
         "level-01.tmx#interactbles": {
+            "dynamicWrapping": false,
             "scaleInDock": 1
         },
         "level-01.tmx#items": {
+            "dynamicWrapping": true,
             "scaleInDock": 2
         },
         "level-01.tmx#low-walls": {

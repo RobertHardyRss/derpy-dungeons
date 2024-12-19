@@ -14,13 +14,14 @@ export class FloorSpikes extends Phaser.Physics.Arcade.Sprite {
 	 */
 	constructor(scene, x, y) {
 		super(scene, x, y, IMAGES.sprites);
-		this.scene.physics.add.existing(this, true);
+		// this.scene.physics.add.existing(this, true);
 
 		this.currentState = STATES.on;
 		this.anims.play(this.currentState);
 		/** the target ID for this instance, gets set when object is created on the map */
 		this.target = 0;
 
+		this.strength = 5;
 		sceneEvents.on(EVENTS.switchActivated, this.toggle, this);
 	}
 

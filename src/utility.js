@@ -1,14 +1,20 @@
-import Phaser, { Physics } from "phaser";
-import { DEBUG, IMAGES, INTERACTABLES, MONSTERS } from "./constants";
+import Phaser from "phaser";
+import { DEBUG, IMAGES, ITEMS, MONSTERS } from "./constants";
 import { Skeleton } from "./game-objects/monsters/skeleton";
 import { BigDemon } from "./game-objects/monsters/big-demon";
 import { BigZombie } from "./game-objects/monsters/big-zombie";
 import { Muddy } from "./game-objects/monsters/muddy";
 import { Slug } from "./game-objects/monsters/slug";
-import { Lever } from "./game-objects/interactables/lever";
-import { BlueButton } from "./game-objects/interactables/blue-button";
-import { RedButton } from "./game-objects/interactables/red-button";
-import { FloorSpikes } from "./game-objects/interactables/floor-spikes";
+import { Lever } from "./game-objects/items/lever";
+import { BlueButton } from "./game-objects/items/blue-button";
+import { RedButton } from "./game-objects/items/red-button";
+import { FloorSpikes } from "./game-objects/items/floor-spikes";
+import { Chest } from "./game-objects/items/chest";
+import { Door } from "./game-objects/items/door";
+import {
+	LargeHealthPotion,
+	SmallHealthPotion,
+} from "./game-objects/items/health-potion";
 
 /** @param {Phaser.Scene} scene */
 /** @param {Phaser.Tilemaps.TilemapLayer} layer */
@@ -65,45 +71,54 @@ export function generateMonstersFromMap(map, group) {
  * @param {Phaser.Tilemaps.Tilemap } map
  * @param {Phaser.GameObjects.Group } map
  */
-export function generateCollidableInteractablesFromMap(map, group) {
-	let interactables = map.createFromObjects(
-		"interactables",
+export function generateCollideItemsFromMap(map, group) {
+	let items = map.createFromObjects(
+		"items",
 		[
 			{
-				name: INTERACTABLES.lever,
+				name: ITEMS.lever,
 				key: IMAGES.sprites,
+				frame: "lever_left.png",
 				classType: Lever,
+			},
+			{
+				name: ITEMS.chest,
+				key: IMAGES.sprites,
+				frame: "chest_empty_open_anim_f0.png",
+				classType: Chest,
 			},
 		],
 		false
 	);
 
-	interactables.forEach((m) => group.add(m));
+	items.forEach((m) => group.add(m));
 }
 
 /**
  * @param {Phaser.Tilemaps.Tilemap } map
  * @param {Phaser.GameObjects.Group } map
  */
-export function generateOverlappableInteractablesFromMap(map, group) {
-	let interactables = map.createFromObjects(
-		"interactables",
+export function generateOverlapItemsFromMap(map, group) {
+	let items = map.createFromObjects(
+		"items",
 		[
 			{
-				name: INTERACTABLES.buttonBlue,
+				name: ITEMS.buttonBlue,
 				key: IMAGES.sprites,
+				frame: "button_blue_up.png",
 				classType: BlueButton,
 			},
 			{
-				name: INTERACTABLES.buttonRed,
+				name: ITEMS.buttonRed,
 				key: IMAGES.sprites,
+				frame: "button_red_up.png",
 				classType: RedButton,
 			},
 		],
 		false
 	);
 
-	interactables.forEach((m) => group.add(m));
+	items.forEach((m) => group.add(m));
 }
 
 /**
@@ -111,11 +126,11 @@ export function generateOverlappableInteractablesFromMap(map, group) {
  * @param {Phaser.GameObjects.Group } map
  */
 export function generateTraps(map, group) {
-	let interactables = map.createFromObjects(
-		"interactables",
+	let traps = map.createFromObjects(
+		"items",
 		[
 			{
-				name: INTERACTABLES.floorSpikes,
+				name: ITEMS.floorSpikes,
 				key: IMAGES.sprites,
 				classType: FloorSpikes,
 			},
@@ -123,5 +138,53 @@ export function generateTraps(map, group) {
 		false
 	);
 
-	interactables.forEach((m) => group.add(m));
+	traps.forEach((m) => group.add(m));
+}
+
+/**
+ * @param {Phaser.Tilemaps.Tilemap } map
+ * @param {Phaser.GameObjects.Group } map
+ */
+export function generateDoors(map, group) {
+	let doors = map.createFromObjects(
+		"items",
+		[
+			{
+				name: ITEMS.door,
+				key: IMAGES.sprites,
+				classType: Door,
+				frame: "doors_leaf_closed.png",
+			},
+		],
+		false
+	);
+
+	doors.forEach((m) => group.add(m));
+}
+
+/**
+ * @param {Phaser.Tilemaps.Tilemap } map
+ * @param {Phaser.GameObjects.Group } map
+ */
+export function generatePotions(map, group) {
+	let potions = map.createFromObjects(
+		"items",
+		[
+			{
+				name: ITEMS.flaskSmall,
+				key: IMAGES.sprites,
+				classType: SmallHealthPotion,
+				frame: "flask_red.png",
+			},
+			{
+				name: ITEMS.flaskBig,
+				key: IMAGES.sprites,
+				classType: LargeHealthPotion,
+				frame: "flask_big_red.png",
+			},
+		],
+		false
+	);
+
+	potions.forEach((m) => group.add(m));
 }

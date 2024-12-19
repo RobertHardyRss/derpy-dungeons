@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="20">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="33">
  <editorsettings>
   <export target="../public/tilemaps/level-01.json" format="json"/>
  </editorsettings>
@@ -557,7 +557,7 @@
    <image source="wall_fountain_basin_red_anim_f0.png" width="16" height="16"/>
   </tile>
  </tileset>
- <layer id="2" name="floor" width="30" height="30">
+ <layer id="2" name="floor" width="30" height="30" locked="1">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -591,7 +591,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer id="3" name="wall" width="30" height="30">
+ <layer id="3" name="wall" width="30" height="30" locked="1">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,51,88,88,88,88,88,88,88,88,88,88,88,88,88,88,53,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -639,7 +639,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,183,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -661,38 +661,51 @@
  </layer>
  <objectgroup id="4" name="spawns">
   <object id="1" name="player-start" gid="290" x="111" y="94" width="16" height="28"/>
-  <object id="2" name="skeleton" gid="328" x="224" y="95" width="16" height="16"/>
+  <object id="2" name="skeleton" gid="328" x="357.333" y="375" width="16" height="16"/>
   <object id="3" name="big_zombie" gid="293" x="179" y="302.5" width="32" height="36"/>
   <object id="4" name="big_demon" gid="292" x="175" y="437" width="32" height="36"/>
-  <object id="8" name="skeleton" gid="328" x="192" y="128" width="16" height="16"/>
+  <object id="8" name="skeleton" gid="328" x="227.333" y="290.667" width="16" height="16"/>
   <object id="9" name="muddy" gid="322" x="63.5" y="223" width="16" height="16"/>
-  <object id="10" name="skeleton" gid="328" x="344.5" y="272" width="16" height="16"/>
+  <object id="10" name="skeleton" gid="328" x="351.833" y="288.333" width="16" height="16"/>
   <object id="11" name="skeleton" gid="328" x="407" y="351" width="16" height="16"/>
-  <object id="12" name="skeleton" gid="328" x="351" y="333" width="16" height="16"/>
+  <object id="12" name="skeleton" gid="328" x="401.333" y="281" width="16" height="16"/>
   <object id="13" name="slug" gid="330" x="143.5" y="246.5" width="16" height="23"/>
   <object id="14" name="slug" gid="330" x="240" y="347.5" width="16" height="23"/>
   <object id="15" name="slug" gid="330" x="154" y="336.5" width="16" height="23"/>
  </objectgroup>
- <objectgroup id="5" name="items">
-  <object id="7" name="weapon" gid="420" x="323" y="437" width="9" height="30"/>
- </objectgroup>
- <objectgroup id="6" name="interactables">
-  <object id="6" name="chest" gid="444" x="399" y="256" width="16" height="16"/>
-  <object id="16" name="lever" gid="466" x="48" y="112" width="16" height="16">
+ <objectgroup id="7" name="items">
+  <object id="20" name="chest" gid="444" x="48" y="109.5" width="16" height="16"/>
+  <object id="21" name="lever" gid="466" x="96" y="109.5" width="16" height="16">
    <properties>
-    <property name="targets" type="int" value="18"/>
+    <property name="targets" type="int" value="24"/>
    </properties>
   </object>
-  <object id="17" name="chest" gid="444" x="80" y="112" width="16" height="16"/>
-  <object id="18" name="floor_spikes" gid="459" x="64" y="176" width="16" height="16">
+  <object id="22" name="button_blue" gid="442" x="143" y="111.5" width="16" height="16">
    <properties>
-    <property name="target" type="int" value="18"/>
+    <property name="targets" type="int" value="24"/>
    </properties>
   </object>
-  <object id="19" name="button_blue" gid="442" x="112" y="112" width="16" height="16">
+  <object id="23" name="button_red" gid="443" x="176" y="111.5" width="16" height="16">
    <properties>
-    <property name="targets" type="int" value="18"/>
+    <property name="targets" type="int" value="24"/>
    </properties>
   </object>
+  <object id="24" name="floor_spikes" gid="459" x="95.5" y="143" width="16" height="16">
+   <properties>
+    <property name="target" type="int" value="24"/>
+   </properties>
+  </object>
+  <object id="29" name="door" gid="449" x="360" y="240" width="32" height="32">
+   <properties>
+    <property name="target" type="int" value="29"/>
+   </properties>
+  </object>
+  <object id="30" name="lever" gid="466" x="368.375" y="112.125" width="16" height="16">
+   <properties>
+    <property name="targets" type="int" value="29"/>
+   </properties>
+  </object>
+  <object id="31" name="flask_big" gid="379" x="32.5" y="126.5" width="16" height="16"/>
+  <object id="32" name="flask_small" gid="383" x="52" y="129" width="16" height="16"/>
  </objectgroup>
 </map>

@@ -1,4 +1,4 @@
-export const DEBUG = true;
+export const DEBUG = false;
 export const PLAYER_DAMAGE_COOLDOWN = 250;
 
 export const SCENES = {
@@ -35,8 +35,8 @@ export const ANIMS = {
 	},
 	floorSpikes: {
 		up: "floor_spikes-up",
-		down: "floor_spikes_down"
-	}
+		down: "floor_spikes_down",
+	},
 };
 
 export const MONSTERS = {
@@ -68,10 +68,13 @@ export const WEAPONS = {
 	axe: "weapon_axe.png",
 };
 
-export const INTERACTABLES = {
+export const ITEMS = {
 	floorSpikes: "floor_spikes",
 	lever: "lever",
 	chest: "chest",
 	buttonBlue: "button_blue",
 	buttonRed: "button_red",
+	door: "door",
+	flaskSmall: "flask_small",
+	flaskBig: "flask_big",
 };

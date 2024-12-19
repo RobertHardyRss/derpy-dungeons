@@ -16,9 +16,14 @@ export class Preloader extends Phaser.Scene {
 			"/sprites/dungeon-sprites.png",
 			"/sprites/dungeon-sprites.json"
 		);
+
+		this.load.bitmapFont("arcade", "/fonts/arcade.png", "/fonts/arcade.xml");
 	}
 
 	create() {
+		this.registry.set("coins", 0);
+		this.registry.set("xp", 0);
+
 		this.setupAnimations();
 		this.scene.start(SCENES.level01);
 	}
@@ -26,6 +31,7 @@ export class Preloader extends Phaser.Scene {
 	setupAnimations() {
 		this.createPlayerAnimations();
 		this.createInteractionAnimations();
+		this.createUiAnimations();
 
 		let monstersWithIdleAnimations = [
 			MONSTERS.angel,

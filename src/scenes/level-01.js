@@ -3,13 +3,22 @@ import { IMAGES, SCENES } from "../constants";
 import { Player } from "../game-objects/player";
 import {
 	debugCollisions,
-	generateCollidableInteractablesFromMap,
+	generateCollideItemsFromMap,
+	generateOverlapItemsFromMap,
 	generateMonstersFromMap,
 	generateTraps,
+	generateDoors,
+	generatePotions,
 } from "../utility";
 import { MonsterBase } from "../game-objects/monsters/base-classes/monster-base";
 import { WeaponBase } from "../game-objects/weapons/base-classes/weapon-base";
-import { Lever } from "../game-objects/interactables/lever";
+import { Lever } from "../game-objects/items/lever";
+import { BlueButton } from "../game-objects/items/blue-button";
+import { RedButton } from "../game-objects/items/red-button";
+import {
+	LargeHealthPotion,
+	SmallHealthPotion,
+} from "../game-objects/items/health-potion";
 
 export class Level01 extends Phaser.Scene {
 	constructor() {
@@ -36,7 +45,6 @@ export class Level01 extends Phaser.Scene {
 			"wall",
 			map.addTilesetImage("low-walls", IMAGES.walls)
 		);
-		map.createLayer("decor", map.addTilesetImage("high-walls", IMAGES.decor));
 
 		wallLayer.setCollisionByProperty({ collides: true });
 		debugCollisions(this, wallLayer);
@@ -44,17 +52,25 @@ export class Level01 extends Phaser.Scene {
 		this.monsters = this.add.group();
 		generateMonstersFromMap(map, this.monsters);
 
-		this.collideInteractable = this.add.group();
-		generateCollidableInteractablesFromMap(map, this.collideInteractable);
-		
-		this.overlapInteractable = this.add.group();
-		generateCollidableInteractablesFromMap(map, this.overlapInteractable);
-		
-		this.traps = this.add.group();
+		this.collideItems = this.physics.add.staticGroup();
+		generateCollideItemsFromMap(map, this.collideItems);
+
+		this.overlapItems = this.physics.add.staticGroup();
+		generateOverlapItemsFromMap(map, this.overlapItems);
+
+		this.traps = this.physics.add.staticGroup();
 		generateTraps(map, this.traps);
+
+		this.potions = this.physics.add.staticGroup();
+		generatePotions(map, this.potions);
 
 		this.playerWeapons = this.add.group();
 		this.player = new Player(this, 50, 50, this.playerWeapons);
+
+		map.createLayer("decor", map.addTilesetImage("high-walls", IMAGES.decor));
+
+		this.doors = this.physics.add.staticGroup();
+		generateDoors(map, this.doors);
 
 		this.physics.add.collider(this.player, wallLayer);
 		this.physics.add.collider(this.monsters, wallLayer);
@@ -67,12 +83,30 @@ export class Level01 extends Phaser.Scene {
 		);
 		this.physics.add.collider(
 			this.player,
-			this.collideInteractable,
-			this.handleCollideInteractable,
+			this.collideItems,
+			this.handleCollideItem,
 			undefined,
 			this
 		);
-		
+
+		this.physics.add.collider(this.player, this.doors);
+		this.physics.add.collider(this.monsters, this.doors);
+
+		this.physics.add.overlap(
+			this.player,
+			this.overlapItems,
+			this.handleCollideItem,
+			undefined,
+			this
+		);
+		this.physics.add.overlap(
+			this.monsters,
+			this.overlapItems,
+			this.handleCollideItem,
+			undefined,
+			this
+		);
+
 		this.physics.add.overlap(
 			this.playerWeapons,
 			this.monsters,
@@ -87,6 +121,21 @@ export class Level01 extends Phaser.Scene {
 			undefined,
 			this
 		);
+		this.physics.add.overlap(
+			this.player,
+			this.traps,
+			this.handlePlayerTrapOverlap,
+			undefined,
+			this
+		);
+
+		this.physics.add.overlap(
+			this.player,
+			this.potions,
+			this.handlePlayerPotionOverlap,
+			undefined,
+			this
+		);
 
 		this.cameras.main.zoom = 3;
 		this.cameras.main.startFollow(this.player);
@@ -97,7 +146,15 @@ export class Level01 extends Phaser.Scene {
 	 * @param {MonsterBase} monster
 	 */
 	handlePlayerMonsterCollision(player, monster) {
-		player.handleMonsterDamage(monster);
+		player.handleDamageToPlayer(monster, monster.active);
+	}
+
+	/**
+	 * @param {Player} player
+	 * @param {FloorSpikes} trap
+	 */
+	handlePlayerTrapOverlap(player, trap) {
+		player.handleDamageToPlayer(trap, trap.isActive(), false);
 	}
 
 	/**
@@ -121,10 +178,23 @@ export class Level01 extends Phaser.Scene {
 	}
 
 	/**
-	 * @param {Player} player 
-	 * @param {Lever | Chest} interactable 
+	 * @param {Player} player
+	 * @param {SmallHealthPotion | LargeHealthPotion} potion
 	 */
-	handleCollideInteractable(player, interactable) {
-		interactable.toggle();
+	handlePlayerPotionOverlap(player, potion) {
+		if (player.health >= 100) {
+			return;
+		}
+
+		player.handlePlayerHealing(potion.strength);
+		this.potions.remove(potion);
+		potion.destroy();
+	}
+
+	/**
+	 * @param {Lever | Chest | BlueButton | RedButton} item
+	 */
+	handleCollideItem(obj, item) {
+		item.toggle();
 	}
 }

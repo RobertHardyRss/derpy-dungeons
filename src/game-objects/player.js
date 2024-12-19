@@ -1,8 +1,10 @@
+//@ts-check
 import Phaser from "phaser";
 import { ANIMS, IMAGES, PLAYER_DAMAGE_COOLDOWN } from "../constants";
 import { MonsterBase } from "./monsters/base-classes/monster-base";
 import { sceneEvents, EVENTS } from "../events/event-center";
 import { Axe } from "./weapons/axe";
+import { FloorSpikes } from "./items/floor-spikes";
 
 export class Player extends Phaser.Physics.Arcade.Sprite {
 	constructor(scene, x, y, weapons) {
@@ -19,7 +21,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 		this.scene.add.existing(this);
 		this.scene.physics.add.existing(this);
 
-		this.keys = this.scene.input.keyboard.createCursorKeys();
+		this.keys = this.scene.input.keyboard?.createCursorKeys();
 
 		/** @type {Phaser.GameObjects.Group} */
 		this.weapons = weapons;
@@ -72,25 +74,25 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 
 		let direction = new Phaser.Math.Vector2(0, 0);
 
-		if (this.keys.left.isDown) {
+		if (this.keys?.left.isDown) {
 			direction.x = -1;
 			this.flipX = true;
-		} else if (this.keys.right.isDown) {
+		} else if (this.keys?.right.isDown) {
 			direction.x = 1;
 			this.flipX = false;
 		} else {
 			direction.x = 0;
 		}
 
-		if (this.keys.up.isDown) {
+		if (this.keys?.up.isDown) {
 			direction.y = -1;
-		} else if (this.keys.down.isDown) {
+		} else if (this.keys?.down.isDown) {
 			direction.y = 1;
 		} else {
 			direction.y = 0;
 		}
 
-		if (this.keys.space.isDown) {
+		if (this.keys?.space.isDown) {
 			// no moving when space is down
 			this.setVelocity(0, 0);
 			this.attackDirection = direction;
@@ -99,7 +101,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 		}
 
 		this.setVelocity(direction.x * this.speed, direction.y * this.speed);
-		if (this.body.velocity.equals(Phaser.Math.Vector2.ZERO)) {
+		if (this.body?.velocity.equals(Phaser.Math.Vector2.ZERO)) {
 			this.anims.play(ANIMS.player.idle, true);
 		} else {
 			this.anims.play(ANIMS.player.run, true);
@@ -119,13 +121,17 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 			this.flipX
 		);
 		this.attackCoolDown = w.coolDownTimer;
+
+		//@ts-ignore playerWeapons exist on scene
 		this.scene.playerWeapons.add(w);
-		console.log(w, this.scene.playerWeapons);
 	}
 
-	/** @param {MonsterBase} monster */
-	handleMonsterDamage(monster) {
-		if (this.currentHealthState !== HealthState.IDLE || !monster.active) {
+	/**
+	 * @param {MonsterBase} source
+	 * @param {boolean} isActive
+	 **/
+	handleDamageToPlayer(source, isActive, knockback = true) {
+		if (this.currentHealthState !== HealthState.IDLE || !isActive) {
 			return;
 		}
 
@@ -134,21 +140,30 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 		// tint the player red
 		this.setTint(0xff0000);
 
-		this.health -= monster.strength;
+		this.health -= source.strength;
 		if (this.health <= 0) {
 			this.currentHealthState = HealthState.DEAD;
 		}
 
-		this.knockBackCount = monster.strength;
+		if (knockback) {
+			this.knockBackCount = source.strength;
 
-		let knockBackVector = new Phaser.Math.Vector2(
-			this.x - monster.x,
-			this.y - monster.y
-		);
+			let knockBackVector = new Phaser.Math.Vector2(
+				this.x - source.x,
+				this.y - source.y
+			);
 
-		knockBackVector.normalize().scale(200);
-		this.setVelocity(knockBackVector.x, knockBackVector.y);
+			knockBackVector.normalize().scale(200);
+			this.setVelocity(knockBackVector.x, knockBackVector.y);
+		}
 
+		sceneEvents.emit(EVENTS.player.healthChanged, this.health);
+	}
+
+	/** @param {number} amount - the amount to heal the player */
+	handlePlayerHealing(amount) {
+		// cannot go over 100 health
+		this.health = Math.min(100, this.health + amount);
 		sceneEvents.emit(EVENTS.player.healthChanged, this.health);
 	}
 }

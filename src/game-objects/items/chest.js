@@ -1,6 +1,6 @@
 import Phaser from "phaser";
 import { ANIMS, AUDIO, IMAGES } from "../../constants";
-import { EVENTS, sceneEvents } from "../../events/event-center";
+import { EVENTS, gameEvents } from "../../events/event-center";
 
 export class Chest extends Phaser.GameObjects.Sprite {
 	/**
@@ -24,6 +24,6 @@ export class Chest extends Phaser.GameObjects.Sprite {
 		this.isOpened = true;
 		this.anims.play(ANIMS.chest.open);
 		this.scene.sound.play(AUDIO.chest);
-		sceneEvents.emit(EVENTS.player.coinsChanged, this.coins);
+		gameEvents.emit(EVENTS.player.coinsChanged, this.coins);
 	}
 }

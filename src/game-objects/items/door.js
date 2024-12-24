@@ -1,6 +1,6 @@
 import Phaser from "phaser";
-import { ANIMS, AUDIO, IMAGES } from "../../constants";
-import { EVENTS, sceneEvents } from "../../events/event-center";
+import { AUDIO, IMAGES } from "../../constants";
+import { EVENTS } from "../../events/event-center";
 
 export class Door extends Phaser.Physics.Arcade.Sprite {
 	/**
@@ -16,11 +16,7 @@ export class Door extends Phaser.Physics.Arcade.Sprite {
 
 		this.isOpened = false;
 
-		sceneEvents.on(EVENTS.switchActivated, this.toggle, this);
-	}
-
-	destroy() {
-		sceneEvents.off(EVENTS.switchActivated, this.toggle, this);
+		this.scene.events.on(EVENTS.switchActivated, this.toggle, this);
 	}
 
 	toggle(target) {

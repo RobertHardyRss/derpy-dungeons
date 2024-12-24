@@ -1,16 +1,21 @@
 //@ts-check
 import Phaser from "phaser";
-import { ANIMS, AUDIO, IMAGES, PLAYER_DAMAGE_COOLDOWN } from "../constants";
+import {
+	ANIMS,
+	AUDIO,
+	IMAGES,
+	PLAYER_DAMAGE_COOLDOWN,
+	SCENES,
+} from "../constants";
 import { MonsterBase } from "./monsters/base-classes/monster-base";
-import { sceneEvents, EVENTS } from "../events/event-center";
+import { gameEvents, EVENTS } from "../events/event-center";
 import { Axe } from "./weapons/axe";
-import { FloorSpikes } from "./items/floor-spikes";
 
 export class Player extends Phaser.Physics.Arcade.Sprite {
 	constructor(scene, x, y, weapons) {
 		super(scene, x, y, IMAGES.sprites, "knight_f_idle_anim_f0.png");
 
-		this.health = 100;
+		this.health = this.scene.registry.get("hp") ?? 100;
 		this.speed = 100;
 		this.knockBackCount = 0;
 		this.attackCoolDown = 0;
@@ -139,11 +144,12 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 
 		// tint the player red
 		this.setTint(0xff0000);
-
 		this.health -= source.strength;
+
 		if (this.health <= 0) {
 			this.currentHealthState = HealthState.DEAD;
 			this.scene.sound.play(AUDIO.playerDeath);
+			gameEvents.emit(EVENTS.player.death);
 		}
 
 		if (knockback) {
@@ -161,7 +167,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 			AUDIO.playerDamage[Phaser.Math.Between(0, AUDIO.playerDamage.length - 1)],
 			{ volume: 0.3 }
 		);
-		sceneEvents.emit(EVENTS.player.healthChanged, this.health);
+		gameEvents.emit(EVENTS.player.healthChanged, this.health);
 	}
 
 	/** @param {number} amount - the amount to heal the player */
@@ -169,7 +175,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 		// cannot go over 100 health
 		this.health = Math.min(100, this.health + amount);
 		this.scene.sound.play(AUDIO.heal);
-		sceneEvents.emit(EVENTS.player.healthChanged, this.health);
+		gameEvents.emit(EVENTS.player.healthChanged, this.health);
 	}
 }
 

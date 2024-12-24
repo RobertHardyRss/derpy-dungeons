@@ -1,8 +1,7 @@
 import Phaser from "phaser";
 import { ANIMS, IMAGES } from "../../constants";
-import { SwitchBase } from "./switch-base";
 import { SwitchStates } from "./switch-states";
-import { EVENTS, sceneEvents } from "../../events/event-center";
+import { EVENTS } from "../../events/event-center";
 
 const STATES = new SwitchStates(ANIMS.floorSpikes.down, ANIMS.floorSpikes.up);
 
@@ -22,11 +21,7 @@ export class FloorSpikes extends Phaser.Physics.Arcade.Sprite {
 		this.target = 0;
 
 		this.strength = 5;
-		sceneEvents.on(EVENTS.switchActivated, this.toggle, this);
-	}
-
-	destroy() {
-		sceneEvents.off(EVENTS.switchActivated, this.toggle, this);
+		this.scene.events.on(EVENTS.switchActivated, this.toggle, this);
 	}
 
 	isActive() {

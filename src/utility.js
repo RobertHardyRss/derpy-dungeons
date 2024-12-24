@@ -1,5 +1,5 @@
 import Phaser from "phaser";
-import { DEBUG, IMAGES, ITEMS, MONSTERS } from "./constants";
+import { DEBUG, IMAGES, ITEMS, MONSTERS, REG_KEYS } from "./constants";
 import { Skeleton } from "./game-objects/monsters/skeleton";
 import { BigDemon } from "./game-objects/monsters/big-demon";
 import { BigZombie } from "./game-objects/monsters/big-zombie";
@@ -29,6 +29,16 @@ export function debugCollisions(scene, layer) {
 		collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255),
 		faceColor: new Phaser.Display.Color(40, 39, 37, 255),
 	});
+}
+
+/**
+ * Resets registry values to starting state for the game
+ * @param {Phaser.Scene} scene
+ *  */
+export function resetRegistry(scene) {
+	scene.registry.set(REG_KEYS.coins, 0);
+	scene.registry.set(REG_KEYS.xp, 0);
+	scene.registry.set(REG_KEYS.hp, 100);
 }
 
 /**

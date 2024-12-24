@@ -6,8 +6,4 @@ export class Level01 extends LevelBase {
 	constructor() {
 		super(SCENES.level01);
 	}
-
-	preload() {
-		this.load.tilemapTiledJSON("level-01", "tilemaps/level-01.json");
-	}
 }

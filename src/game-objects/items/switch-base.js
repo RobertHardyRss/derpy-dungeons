@@ -1,7 +1,7 @@
 import Phaser from "phaser";
 import { SwitchStates } from "./switch-states";
 import { AUDIO, IMAGES } from "../../constants";
-import { EVENTS, sceneEvents } from "../../events/event-center";
+import { EVENTS } from "../../events/event-center";
 
 export class SwitchBase extends Phaser.GameObjects.Sprite {
 	/**
@@ -45,7 +45,7 @@ export class SwitchBase extends Phaser.GameObjects.Sprite {
 			this.currentState = this.states.off;
 		}
 
-		// emit an event so anything targets of this state change can react
-		sceneEvents.emit(EVENTS.switchActivated, this.targets);
+		// emit an event so anything that is a target of this state change can react
+		this.scene.events.emit(EVENTS.switchActivated, this.targets);
 	}
 }

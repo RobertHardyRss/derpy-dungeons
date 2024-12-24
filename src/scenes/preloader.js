@@ -1,12 +1,15 @@
 import Phaser from "phaser";
 import { ANIMS, AUDIO, IMAGES, MONSTERS, SCENES } from "../constants";
+import { resetRegistry } from "../utility";
 
 export class Preloader extends Phaser.Scene {
 	constructor() {
 		super({ key: SCENES.preloader });
+		console.log("Preloader constructor");
 	}
 
 	preload() {
+		console.log("Preloader preload");
 		this.load.image(IMAGES.floor, "tilemaps/atlas_floor-16x16.png");
 		this.load.image(IMAGES.walls, "tilemaps/atlas_walls_low-16x16.png");
 		this.load.image(IMAGES.decor, "tilemaps/atlas_walls_high-16x32.png");
@@ -42,14 +45,19 @@ export class Preloader extends Phaser.Scene {
 		this.load.audio(AUDIO.playerWalk[1], "sfx/player_walk_stone_2.wav");
 		this.load.audio(AUDIO.playerWalk[2], "sfx/player_walk_stone_3.wav");
 		this.load.audio(AUDIO.music, "music/Goblins_Den.wav");
+		this.load.audio(AUDIO.gameOver, "music/Goblins_Dance.wav");
 		this.load.audio(AUDIO.heal, "sfx/heal.wav");
+
+		// level tile maps
+		this.load.tilemapTiledJSON(SCENES.level01, "tilemaps/level-01.json");
 	}
 
 	create() {
-		this.registry.set("coins", 0);
-		this.registry.set("xp", 0);
+		console.log("Preloader create");
+		resetRegistry(this);
 
 		this.setupAnimations();
+		this.scene.start(SCENES.gameUi);
 		this.scene.start(SCENES.level01);
 	}
 

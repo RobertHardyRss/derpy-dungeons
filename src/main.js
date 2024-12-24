@@ -4,6 +4,7 @@ import { Preloader } from "./scenes/preloader";
 import { Level01 } from "./scenes/level-01";
 import { DEBUG } from "./constants";
 import { GameUi } from "./scenes/game-ui";
+import { GameOver } from "./scenes/game-over";
 
 const game = new Phaser.Game({
 	width: window.innerWidth,
@@ -20,7 +21,7 @@ const game = new Phaser.Game({
 			debug: DEBUG,
 		},
 	},
-	scene: [Preloader, Level01, GameUi],
+	scene: [Preloader, Level01, GameUi, GameOver],
 	render: {
 		pixelArt: true,
 	},

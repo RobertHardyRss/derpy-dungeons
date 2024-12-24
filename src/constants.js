@@ -100,5 +100,12 @@ export const AUDIO = {
 	monsterDamage: ["monster-damage-1", "monster-damage-2", "monster-damage-3"],
 	monsterDeath: "monster-death",
 	music: "music",
+	gameOver: "game-over",
 	heal: "heal",
+};
+
+export const REG_KEYS = {
+	coins: "coins",
+	xp: "xp",
+	hp: "hp",
 };

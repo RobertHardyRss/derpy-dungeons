@@ -1,7 +1,8 @@
+//@ts-check
 import Phaser from "phaser";
 import { AUDIO, IMAGES } from "../../../constants";
 import { WeaponBase } from "../../weapons/base-classes/weapon-base";
-import { sceneEvents, EVENTS } from "../../../events/event-center";
+import { gameEvents, EVENTS } from "../../../events/event-center";
 
 export class MonsterBase extends Phaser.Physics.Arcade.Sprite {
 	constructor(scene, x, y, frame, typeName) {
@@ -79,7 +80,7 @@ export class MonsterBase extends Phaser.Physics.Arcade.Sprite {
 		this.hitPoints -= weapon.damage;
 		if (this.hitPoints <= 0) {
 			this.scene.sound.play(AUDIO.monsterDeath, { volume: 0.3 });
-			sceneEvents.emit(EVENTS.monsterDeath, this.xp);
+			gameEvents.emit(EVENTS.monsterDeath, this.xp);
 			this.setActive(false);
 			this.setVisible(false);
 		} else {

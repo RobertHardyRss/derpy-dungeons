@@ -1,10 +1,13 @@
-export const DEBUG = false;
+export const DEBUG = true;
+export const DEBUG_DISABLE_MONSTER_MOVEMENT = true;
+
 export const PLAYER_DAMAGE_COOLDOWN = 250;
 
 export const SCENES = {
 	preloader: "preloader",
 	gameUi: "game-ui",
 	gameOver: "game-over",
+	levelDemo: "level-demo",
 	level01: "level-01",
 	level02: "level-02",
 };
@@ -36,6 +39,17 @@ export const ANIMS = {
 	floorSpikes: {
 		up: "floor_spikes-up",
 		down: "floor_spikes_down",
+	},
+	fountains: {
+		blue: {
+			basin: "fountain-blue-base",
+			middle: "fountain-blue-middle",
+		},
+		red: {
+			basin: "fountain-red-base",
+			middle: "fountain-red-middle",
+		},
+		top: {},
 	},
 };
 
@@ -77,6 +91,7 @@ export const ITEMS = {
 	door: "door",
 	flask: "flask",
 	flaskBig: "flask_big",
+	stairs: "stairs",
 };
 
 export const AUDIO = {

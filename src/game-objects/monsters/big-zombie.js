@@ -11,8 +11,8 @@ export class BigZombie extends MonsterFullAnimation {
 		this.strength = 50;
 
 		// adjust hitbox
-		this.setSize(this.width * 0.5, this.height * 0.65);
-		this.setOffset(8, 12);
+		this.setSize(14, 20);
+		this.setOffset(10, 16);
 	}
 
 	update(time, delta) {

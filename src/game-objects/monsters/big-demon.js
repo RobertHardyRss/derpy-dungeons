@@ -11,8 +11,8 @@ export class BigDemon extends MonsterFullAnimation {
 		this.strength = 50;
 
 		// adjust hitbox
-		this.setSize(this.width * 0.5, this.height * 0.8);
-		this.setOffset(8, 8);
+		this.setSize(14, 24);
+		this.setOffset(10, 12);
 	}
 
 	update(time, delta) {

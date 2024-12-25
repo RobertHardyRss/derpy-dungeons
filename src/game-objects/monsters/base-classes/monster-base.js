@@ -1,6 +1,10 @@
 //@ts-check
 import Phaser from "phaser";
-import { AUDIO, IMAGES } from "../../../constants";
+import {
+	AUDIO,
+	DEBUG_DISABLE_MONSTER_MOVEMENT,
+	IMAGES,
+} from "../../../constants";
 import { WeaponBase } from "../../weapons/base-classes/weapon-base";
 import { gameEvents, EVENTS } from "../../../events/event-center";
 
@@ -130,6 +134,9 @@ export class MonsterBase extends Phaser.Physics.Arcade.Sprite {
 	}
 
 	move() {
+		if (DEBUG_DISABLE_MONSTER_MOVEMENT) {
+			return;
+		}
 		this.setVelocity(this.movementVector.x, this.movementVector.y);
 	}
 

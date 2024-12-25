@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="691">
+ <editorsettings>
+  <export format="json"/>
+ </editorsettings>
+ <tileset firstgid="1" name="floors" tilewidth="16" tileheight="16" tilecount="49" columns="7">
+  <image source="../public/tilemaps/atlas_floor-16x16.png" width="112" height="112"/>
+  <tile id="1" probability="0.125"/>
+  <tile id="2" probability="0.25"/>
+  <tile id="7" probability="0.01"/>
+  <tile id="8" probability="0.25"/>
+  <tile id="9" probability="0.01"/>
+  <tile id="14" probability="0.01"/>
+  <tile id="15" probability="0.01"/>
+  <wangsets>
+   <wangset name="floors" type="corner" tile="15">
+    <wangcolor name="" color="#ff0000" tile="15" probability="1"/>
+    <wangtile tileid="0" wangid="0,1,0,1,0,1,0,1"/>
+    <wangtile tileid="1" wangid="0,1,0,1,0,1,0,1"/>
+    <wangtile tileid="2" wangid="0,1,0,1,0,1,0,1"/>
+    <wangtile tileid="7" wangid="0,1,0,1,0,1,0,1"/>
+    <wangtile tileid="8" wangid="0,1,0,1,0,1,0,1"/>
+    <wangtile tileid="9" wangid="0,1,0,1,0,1,0,1"/>
+    <wangtile tileid="11" wangid="0,0,0,1,0,1,0,0"/>
+    <wangtile tileid="12" wangid="0,0,0,1,0,1,0,0"/>
+    <wangtile tileid="14" wangid="0,1,0,1,0,1,0,1"/>
+    <wangtile tileid="15" wangid="0,1,0,1,0,1,0,1"/>
+    <wangtile tileid="39" wangid="0,1,0,1,0,0,0,0"/>
+    <wangtile tileid="40" wangid="0,0,0,0,0,1,0,1"/>
+    <wangtile tileid="46" wangid="0,0,0,1,0,0,0,0"/>
+    <wangtile tileid="47" wangid="0,0,0,0,0,1,0,0"/>
+   </wangset>
+  </wangsets>
+ </tileset>
+ <tileset firstgid="50" name="low-walls" tilewidth="16" tileheight="16" tilecount="48" columns="12">
+  <image source="../public/tilemaps/atlas_walls_low-16x16.png" width="192" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="15">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="16">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="18">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="19">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="20">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="21">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="22">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="23">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="24">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="25">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="26">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="27">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="28">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="29">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="30">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="31">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="32">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="33">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="34">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="35">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="36">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="37">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="38">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="39">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="40">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="41">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="42">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="43">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="44">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="45">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="46">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="47">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <wangsets>
+   <wangset name="low-walls" type="edge" tile="1">
+    <wangcolor name="" color="#ff0000" tile="1" probability="1"/>
+    <wangtile tileid="0" wangid="0,0,0,0,1,0,0,0"/>
+    <wangtile tileid="1" wangid="0,0,1,0,1,0,0,0"/>
+    <wangtile tileid="2" wangid="0,0,1,0,1,0,1,0"/>
+    <wangtile tileid="3" wangid="0,0,0,0,1,0,1,0"/>
+    <wangtile tileid="12" wangid="1,0,0,0,1,0,0,0"/>
+    <wangtile tileid="13" wangid="1,0,1,0,1,0,0,0"/>
+    <wangtile tileid="14" wangid="1,0,1,0,1,0,1,0"/>
+    <wangtile tileid="15" wangid="1,0,0,0,1,0,1,0"/>
+    <wangtile tileid="24" wangid="1,0,0,0,0,0,0,0"/>
+    <wangtile tileid="25" wangid="1,0,1,0,0,0,0,0"/>
+    <wangtile tileid="26" wangid="1,0,1,0,0,0,1,0"/>
+    <wangtile tileid="27" wangid="1,0,0,0,0,0,1,0"/>
+    <wangtile tileid="37" wangid="0,0,1,0,0,0,0,0"/>
+    <wangtile tileid="38" wangid="0,0,1,0,0,0,1,0"/>
+    <wangtile tileid="39" wangid="0,0,0,0,0,0,1,0"/>
+   </wangset>
+  </wangsets>
+ </tileset>
+ <tileset firstgid="98" name="high-walls" tilewidth="16" tileheight="16" tilecount="192" columns="24">
+  <image source="../public/tilemaps/atlas_walls_high-16x32.png" width="384" height="128"/>
+  <tile id="12">
+   <animation>
+    <frame tileid="12" duration="100"/>
+    <frame tileid="13" duration="100"/>
+    <frame tileid="14" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="36">
+   <animation>
+    <frame tileid="36" duration="100"/>
+    <frame tileid="37" duration="100"/>
+    <frame tileid="38" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="108">
+   <animation>
+    <frame tileid="108" duration="100"/>
+    <frame tileid="109" duration="100"/>
+    <frame tileid="110" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="132">
+   <animation>
+    <frame tileid="132" duration="100"/>
+    <frame tileid="133" duration="100"/>
+    <frame tileid="134" duration="100"/>
+   </animation>
+  </tile>
+ </tileset>
+ <tileset firstgid="290" name="creatures" tilewidth="32" tileheight="36" tilecount="25" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image source="sprite-frames/knight_f_idle_anim_f0.png" width="16" height="28"/>
+  </tile>
+  <tile id="1">
+   <image source="sprite-frames/angel_idle_anim_f0.png" width="16" height="16"/>
+  </tile>
+  <tile id="2">
+   <image source="sprite-frames/big_demon_idle_anim_f0.png" width="32" height="36"/>
+  </tile>
+  <tile id="3">
+   <image source="sprite-frames/big_zombie_idle_anim_f0.png" width="32" height="36"/>
+  </tile>
+  <tile id="8">
+   <image source="sprite-frames/chort_idle_anim_f0.png" width="16" height="23"/>
+  </tile>
+  <tile id="11">
+   <image source="sprite-frames/doc_idle_anim_f0.png" width="16" height="23"/>
+  </tile>
+  <tile id="24">
+   <image source="sprite-frames/goblin_idle_anim_f0.png" width="16" height="16"/>
+  </tile>
+  <tile id="26">
+   <image source="sprite-frames/ice_zombie_anim_f0.png" width="16" height="16"/>
+  </tile>
+  <tile id="27">
+   <image source="sprite-frames/imp_idle_anim_f0.png" width="16" height="16"/>
+  </tile>
+  <tile id="29">
+   <image source="sprite-frames/lizard_f_hit_anim_f0.png" width="16" height="28"/>
+  </tile>
+  <tile id="30">
+   <image source="sprite-frames/lizard_m_hit_anim_f0.png" width="16" height="28"/>
+  </tile>
+  <tile id="31">
+   <image source="sprite-frames/masked_orc_idle_anim_f0.png" width="16" height="23"/>
+  </tile>
+  <tile id="32">
+   <image source="sprite-frames/muddy_anim_f0.png" width="16" height="16"/>
+  </tile>
+  <tile id="33">
+   <image source="sprite-frames/necromancer_anim_f0.png" width="16" height="23"/>
+  </tile>
+  <tile id="34">
+   <image source="sprite-frames/ogre_idle_anim_f0.png" width="32" height="36"/>
+  </tile>
+  <tile id="35">
+   <image source="sprite-frames/orc_shaman_idle_anim_f0.png" width="16" height="23"/>
+  </tile>
+  <tile id="36">
+   <image source="sprite-frames/orc_warrior_idle_anim_f0.png" width="16" height="23"/>
+  </tile>
+  <tile id="37">
+   <image source="sprite-frames/pumpkin_dude_idle_anim_f0.png" width="16" height="23"/>
+  </tile>
+  <tile id="38">
+   <image source="sprite-frames/skeleton_idle_anim_f0.png" width="16" height="16"/>
+  </tile>
+  <tile id="40">
+   <image source="sprite-frames/slug_anim_f0.png" width="16" height="23"/>
+  </tile>
+  <tile id="41">
+   <image source="sprite-frames/swampy_anim_f0.png" width="16" height="16"/>
+  </tile>
+  <tile id="42">
+   <image source="sprite-frames/tiny_slug_anim_f0.png" width="16" height="16"/>
+  </tile>
+  <tile id="43">
+   <image source="sprite-frames/tiny_zombie_idle_anim_f0.png" width="16" height="16"/>
+  </tile>
+  <tile id="73">
+   <image source="sprite-frames/wogol_idle_anim_f0.png" width="16" height="23"/>
+  </tile>
+  <tile id="74">
+   <image source="sprite-frames/zombie_anim_f1.png" width="16" height="16"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="365" name="items" tilewidth="37" tileheight="37" tilecount="37" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="3">
+   <image source="sprite-frames/bomb_f0.png" width="16" height="16"/>
+  </tile>
+  <tile id="8">
+   <image source="sprite-frames/coin_anim_f0.png" width="6" height="7"/>
+  </tile>
+  <tile id="12">
+   <image source="sprite-frames/flask_big_blue.png" width="16" height="16"/>
+  </tile>
+  <tile id="13">
+   <image source="sprite-frames/flask_big_green.png" width="16" height="16"/>
+  </tile>
+  <tile id="14">
+   <image source="sprite-frames/flask_big_red.png" width="16" height="16"/>
+  </tile>
+  <tile id="15">
+   <image source="sprite-frames/flask_big_yellow.png" width="16" height="16"/>
+  </tile>
+  <tile id="16">
+   <image source="sprite-frames/flask_blue.png" width="16" height="16"/>
+  </tile>
+  <tile id="17">
+   <image source="sprite-frames/flask_green.png" width="16" height="16"/>
+  </tile>
+  <tile id="18">
+   <image source="sprite-frames/flask_red.png" width="16" height="16"/>
+  </tile>
+  <tile id="19">
+   <image source="sprite-frames/flask_yellow.png" width="16" height="16"/>
+  </tile>
+  <tile id="39">
+   <image source="sprite-frames/skull.png" width="16" height="16"/>
+  </tile>
+  <tile id="46">
+   <image source="sprite-frames/weapon_anime_sword.png" width="30" height="12"/>
+  </tile>
+  <tile id="47">
+   <image source="sprite-frames/weapon_arrow.png" width="21" height="7"/>
+  </tile>
+  <tile id="48">
+   <image source="sprite-frames/weapon_axe.png" width="21" height="9"/>
+  </tile>
+  <tile id="49">
+   <image source="sprite-frames/weapon_baton_with_spikes.png" width="22" height="10"/>
+  </tile>
+  <tile id="50">
+   <image source="sprite-frames/weapon_big_hammer.png" width="37" height="10"/>
+  </tile>
+  <tile id="51">
+   <image source="sprite-frames/weapon_bow.png" width="26" height="14"/>
+  </tile>
+  <tile id="53">
+   <image source="sprite-frames/weapon_cleaver.png" width="19" height="9"/>
+  </tile>
+  <tile id="54">
+   <image source="sprite-frames/weapon_double_axe.png" width="24" height="16"/>
+  </tile>
+  <tile id="55">
+   <image source="sprite-frames/weapon_duel_sword.png" width="30" height="9"/>
+  </tile>
+  <tile id="56">
+   <image source="sprite-frames/weapon_golden_sword.png" width="22" height="10"/>
+  </tile>
+  <tile id="57">
+   <image source="sprite-frames/weapon_green_magic_staff.png" width="30" height="8"/>
+  </tile>
+  <tile id="58">
+   <image source="sprite-frames/weapon_hammer.png" width="24" height="10"/>
+  </tile>
+  <tile id="59">
+   <image source="sprite-frames/weapon_katana.png" width="29" height="6"/>
+  </tile>
+  <tile id="60">
+   <image source="sprite-frames/weapon_knife.png" width="13" height="6"/>
+  </tile>
+  <tile id="61">
+   <image source="sprite-frames/weapon_knight_sword.png" width="29" height="10"/>
+  </tile>
+  <tile id="62">
+   <image source="sprite-frames/weapon_lavish_sword.png" width="30" height="10"/>
+  </tile>
+  <tile id="63">
+   <image source="sprite-frames/weapon_mace.png" width="24" height="10"/>
+  </tile>
+  <tile id="64">
+   <image source="sprite-frames/weapon_machete.png" width="22" height="5"/>
+  </tile>
+  <tile id="65">
+   <image source="sprite-frames/weapon_red_gem_sword.png" width="21" height="10"/>
+  </tile>
+  <tile id="66">
+   <image source="sprite-frames/weapon_red_magic_staff.png" width="30" height="8"/>
+  </tile>
+  <tile id="67">
+   <image source="sprite-frames/weapon_regular_sword.png" width="21" height="10"/>
+  </tile>
+  <tile id="68">
+   <image source="sprite-frames/weapon_rusty_sword.png" width="21" height="10"/>
+  </tile>
+  <tile id="69">
+   <image source="sprite-frames/weapon_saw_sword.png" width="25" height="10"/>
+  </tile>
+  <tile id="70">
+   <image source="sprite-frames/weapon_spear.png" width="30" height="6"/>
+  </tile>
+  <tile id="71">
+   <image source="sprite-frames/weapon_throwing_axe.png" width="14" height="10"/>
+  </tile>
+  <tile id="72">
+   <image source="sprite-frames/weapon_waraxe.png" width="23" height="12"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="438" name="interactbles" tilewidth="32" tileheight="32" tilecount="12" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="4">
+   <image source="sprite-frames/button_blue_up.png" width="16" height="16"/>
+  </tile>
+  <tile id="5">
+   <image source="sprite-frames/button_red_up.png" width="16" height="16"/>
+  </tile>
+  <tile id="6">
+   <image source="sprite-frames/chest_empty_open_anim_f0.png" width="16" height="16"/>
+  </tile>
+  <tile id="9">
+   <image source="sprite-frames/crate.png" width="16" height="24"/>
+  </tile>
+  <tile id="11">
+   <image source="sprite-frames/doors_leaf_closed.png" width="32" height="32"/>
+  </tile>
+  <tile id="20">
+   <image source="sprite-frames/floor_ladder.png" width="16" height="16"/>
+  </tile>
+  <tile id="21">
+   <image source="sprite-frames/floor_spikes_anim_f3.png" width="16" height="16"/>
+  </tile>
+  <tile id="22">
+   <image source="sprite-frames/floor_stairs.png" width="16" height="16"/>
+  </tile>
+  <tile id="24">
+   <image source="sprite-frames/hole.png" width="16" height="16"/>
+  </tile>
+  <tile id="28">
+   <image source="sprite-frames/lever_left.png" width="16" height="16"/>
+  </tile>
+  <tile id="46">
+   <image source="sprite-frames/wall_fountain_blue_anim_f0.png" width="16" height="32"/>
+  </tile>
+  <tile id="47">
+   <image source="sprite-frames/wall_fountain_red_anim_f0.png" width="16" height="32"/>
+  </tile>
+ </tileset>
+ <layer id="2" name="floor" width="30" height="30">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer id="3" name="wall" width="30" height="30">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer id="1" name="decor" width="30" height="30">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="4" name="spawns">
+  <object id="93" name="skeleton" gid="328" x="0" y="160" width="16" height="16"/>
+  <object id="171" name="big_zombie" gid="293" x="64" y="160" width="32" height="36"/>
+  <object id="416" name="player_start" gid="290" x="0" y="32" width="16" height="28"/>
+  <object id="417" name="muddy" gid="322" x="16" y="64" width="16" height="16"/>
+  <object id="662" name="big_demon" gid="292" x="48" y="208" width="32" height="36"/>
+  <object id="663" name="angel" gid="291" x="48" y="256" width="16" height="16"/>
+  <object id="664" name="chort" gid="298" x="16" y="208" width="16" height="23"/>
+  <object id="665" name="doc" gid="301" x="32" y="256" width="16" height="23"/>
+  <object id="666" name="goblin" gid="314" x="48" y="112" width="16" height="16"/>
+  <object id="667" name="ice_zombie" gid="316" x="32" y="160" width="16" height="16"/>
+  <object id="668" gid="316" x="224" y="688" width="16" height="16"/>
+  <object id="669" name="imp" gid="317" x="32" y="208" width="16" height="16"/>
+  <object id="670" name="masked_orc" gid="321" x="32" y="112" width="16" height="23"/>
+  <object id="671" name="necromancer" gid="323" x="16" y="256" width="16" height="23"/>
+  <object id="672" name="ogre" gid="324" x="64" y="112" width="32" height="36"/>
+  <object id="673" name="orc_shaman" gid="325" x="16" y="112" width="16" height="23"/>
+  <object id="674" name="orc_warrior" gid="326" x="0" y="112" width="16" height="23"/>
+  <object id="675" name="pumpkin_dude" gid="327" x="0" y="256" width="16" height="23"/>
+  <object id="676" name="slug" gid="330" x="64" y="64" width="16" height="23"/>
+  <object id="677" name="swampy" gid="331" x="0" y="64" width="16" height="16"/>
+  <object id="678" name="tiny_slug" gid="332" x="48" y="64" width="16" height="16"/>
+  <object id="679" name="tiny_zombie" gid="333" x="48" y="160" width="16" height="16"/>
+  <object id="680" name="wogol" gid="363" x="0" y="208" width="16" height="23"/>
+  <object id="681" name="zombie" gid="364" x="16" y="160" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup id="7" name="items">
+  <object id="33" name="door" gid="449" x="32" y="32" width="32" height="32">
+   <properties>
+    <property name="target" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="50" name="lever" gid="466" x="80" y="32" width="16" height="16">
+   <properties>
+    <property name="targets" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="586" name="flask_big" gid="379" x="160" y="32" width="16" height="16"/>
+  <object id="588" name="flask" gid="383" x="144" y="32" width="16" height="16"/>
+  <object id="636" name="chest" gid="444" x="128" y="32" width="16" height="16"/>
+  <object id="639" name="button_blue" gid="442" x="96" y="32" width="16" height="16">
+   <properties>
+    <property name="target" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="641" name="floor_spikes" gid="459" x="64" y="32" width="16" height="16">
+   <properties>
+    <property name="target" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="682" name="button_red" gid="443" x="112" y="32" width="16" height="16">
+   <properties>
+    <property name="targets" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="683" name="hole" gid="462" x="112" y="64" width="16" height="16">
+   <properties>
+    <property name="destination" value="level-00"/>
+   </properties>
+  </object>
+  <object id="684" name="ladder" gid="458" x="128" y="64" width="16" height="16">
+   <properties>
+    <property name="destination" value="level-00"/>
+   </properties>
+  </object>
+  <object id="685" name="stairs" gid="460" x="144" y="64" width="16" height="16">
+   <properties>
+    <property name="destination" value="level-00"/>
+   </properties>
+  </object>
+  <object id="686" name="crate" gid="447" x="176" y="32" width="16" height="24"/>
+  <object id="689" gid="484" x="192" y="32" width="16" height="32"/>
+  <object id="690" gid="485" x="208" y="32" width="16" height="32"/>
+ </objectgroup>
+</map>

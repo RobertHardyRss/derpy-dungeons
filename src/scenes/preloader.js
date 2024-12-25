@@ -49,7 +49,9 @@ export class Preloader extends Phaser.Scene {
 		this.load.audio(AUDIO.heal, "sfx/heal.wav");
 
 		// level tile maps
+		this.load.tilemapTiledJSON(SCENES.levelDemo, "tilemaps/level-demo.json");
 		this.load.tilemapTiledJSON(SCENES.level01, "tilemaps/level-01.json");
+		this.load.tilemapTiledJSON(SCENES.level02, "tilemaps/level-02.json");
 	}
 
 	create() {
@@ -58,7 +60,7 @@ export class Preloader extends Phaser.Scene {
 
 		this.setupAnimations();
 		this.scene.start(SCENES.gameUi);
-		this.scene.start(SCENES.level01);
+		this.scene.start(SCENES.levelDemo);
 	}
 
 	setupAnimations() {

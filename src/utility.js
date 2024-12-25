@@ -15,6 +15,7 @@ import {
 	LargeHealthPotion,
 	SmallHealthPotion,
 } from "./game-objects/items/health-potion";
+import { Stairs } from "./game-objects/items/stairs";
 
 /** @param {Phaser.Scene} scene */
 /** @param {Phaser.Tilemaps.TilemapLayer} layer */
@@ -138,6 +139,12 @@ export function generateOverlapItemsFromMap(map, group) {
 				key: IMAGES.sprites,
 				frame: "button_red_up.png",
 				classType: RedButton,
+			},
+			{
+				name: ITEMS.stairs,
+				key: IMAGES.sprites,
+				frame: "floor_stairs.png",
+				classType: Stairs,
 			},
 		],
 		false

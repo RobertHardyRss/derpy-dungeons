@@ -21,6 +21,7 @@ import {
 	LargeHealthPotion,
 	SmallHealthPotion,
 } from "../game-objects/items/health-potion";
+import { Stairs } from "../game-objects/items/stairs";
 
 export class LevelBase extends Phaser.Scene {
 	constructor(key) {
@@ -29,6 +30,8 @@ export class LevelBase extends Phaser.Scene {
 
 		/** The key for the tile map, set to the same value as the scene key */
 		this.mapKey = key;
+
+		this.animatedTiles = [];
 
 		// scene groups
 		this.playerWeapons;
@@ -190,7 +193,7 @@ export class LevelBase extends Phaser.Scene {
 	}
 
 	/**
-	 * @param {WeaponBase} weapon 
+	 * @param {WeaponBase} weapon
 	 */
 	handleWeaponWallCollision(weapon) {
 		this.sound.play(AUDIO.playerAttackMiss);
@@ -213,9 +216,21 @@ export class LevelBase extends Phaser.Scene {
 	}
 
 	/**
-	 * @param {Lever | Chest | BlueButton | RedButton} item
+	 * @param { Player | MonsterBase } obj
+	 * @param { Lever | Chest | BlueButton | RedButton | Stairs } item
 	 */
 	handleCollideItem(obj, item) {
+		if (item instanceof Stairs) {
+			if (obj instanceof MonsterBase) {
+				// don't trigger stairs for monsters
+				return;
+			}
+			/** @type {Stairs} */
+			const stairs = item;
+			this.scene.start(stairs.destination);
+			return;
+		}
+
 		item.toggle();
 	}
 
@@ -223,7 +238,6 @@ export class LevelBase extends Phaser.Scene {
 		this.time.delayedCall(
 			5000,
 			() => {
-				this.sound.stopAll();
 				this.scene.start(SCENES.gameOver);
 			},
 			undefined,
@@ -237,6 +251,9 @@ export class LevelBase extends Phaser.Scene {
 			Phaser.Scenes.Events.SHUTDOWN,
 			(sys) => {
 				console.log("LevelBase shutdown");
+				// stop sounds
+				sys.scene.sound.stopAll();
+
 				// clear events
 				sys.scene.events.off(EVENTS.switchActivated);
 

@@ -1,9 +1,9 @@
 import { MONSTERS } from "../../constants";
 import { MonsterBasicAnimation } from "./base-classes/monster-basic-animation";
 
-export class Slug extends MonsterBasicAnimation {
+export class IceZombie extends MonsterBasicAnimation {
 	constructor(scene, x, y) {
-		super(scene, x, y, MONSTERS.slug);
+		super(scene, x, y, MONSTERS.iceZombie);
 
 		this.hitPoints = 1;
 		this.xp = 1;
@@ -11,7 +11,8 @@ export class Slug extends MonsterBasicAnimation {
 		this.strength = 1;
 
 		// adjust hitbox
-		this.setSize(this.width * 0.5, this.height * 0.5);
-		this.setOffset(4, 10);
+		this.setSize(8, 14);
+		this.setOffset(4, 1);
+
 	}
 }

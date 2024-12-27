@@ -15,7 +15,4 @@ export class BigDemon extends MonsterFullAnimation {
 		this.setOffset(10, 12);
 	}
 
-	update(time, delta) {
-		super.update(time, delta);
-	}
 }

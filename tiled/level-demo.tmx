@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="691">
  <editorsettings>
-  <export format="json"/>
+  <export target="../public/tilemaps/level-demo.json" format="json"/>
  </editorsettings>
  <tileset firstgid="1" name="floors" tilewidth="16" tileheight="16" tilecount="49" columns="7">
   <image source="../public/tilemaps/atlas_floor-16x16.png" width="112" height="112"/>
@@ -660,30 +660,30 @@
 </data>
  </layer>
  <objectgroup id="4" name="spawns">
-  <object id="93" name="skeleton" gid="328" x="0" y="144" width="16" height="16"/>
-  <object id="171" name="big_zombie" gid="293" x="64" y="144" width="32" height="36"/>
-  <object id="416" name="player_start" gid="290" x="128" y="128" width="16" height="28"/>
+  <object id="93" name="skeleton" gid="328" x="0" y="80" width="16" height="16"/>
+  <object id="171" name="big_zombie" gid="293" x="112" y="32" width="32" height="36"/>
+  <object id="416" name="player_start" gid="290" x="64" y="80" width="16" height="28"/>
   <object id="417" name="muddy" gid="322" x="16" y="16" width="16" height="16"/>
-  <object id="662" name="big_demon" gid="292" x="48" y="208" width="32" height="36"/>
-  <object id="663" name="angel" gid="291" x="48" y="256" width="16" height="16"/>
-  <object id="664" name="chort" gid="298" x="16" y="208" width="16" height="23"/>
-  <object id="665" name="doc" gid="301" x="32" y="256" width="16" height="23"/>
-  <object id="666" name="goblin" gid="314" x="48" y="80" width="16" height="16"/>
-  <object id="667" name="ice_zombie" gid="316" x="32" y="144" width="16" height="16"/>
+  <object id="662" name="big_demon" gid="292" x="144" y="32" width="32" height="36"/>
+  <object id="663" name="angel" gid="291" x="128" y="64" width="16" height="16"/>
+  <object id="664" name="chort" gid="298" x="16" y="112" width="16" height="23"/>
+  <object id="665" name="doc" gid="301" x="112" y="64" width="16" height="23"/>
+  <object id="666" name="goblin" gid="314" x="48" y="48" width="16" height="16"/>
+  <object id="667" name="ice_zombie" gid="316" x="32" y="80" width="16" height="16"/>
   <object id="668" gid="316" x="224" y="688" width="16" height="16"/>
-  <object id="669" name="imp" gid="317" x="32" y="208" width="16" height="16"/>
-  <object id="670" name="masked_orc" gid="321" x="32" y="80" width="16" height="23"/>
-  <object id="671" name="necromancer" gid="323" x="16" y="256" width="16" height="23"/>
-  <object id="672" name="ogre" gid="324" x="64" y="80" width="32" height="36"/>
-  <object id="673" name="orc_shaman" gid="325" x="16" y="80" width="16" height="23"/>
-  <object id="674" name="orc_warrior" gid="326" x="0" y="80" width="16" height="23"/>
-  <object id="675" name="pumpkin_dude" gid="327" x="0" y="256" width="16" height="23"/>
+  <object id="669" name="imp" gid="317" x="32" y="112" width="16" height="16"/>
+  <object id="670" name="masked_orc" gid="321" x="32" y="48" width="16" height="23"/>
+  <object id="671" name="necromancer" gid="323" x="96" y="64" width="16" height="23"/>
+  <object id="672" name="ogre" gid="324" x="80" y="32" width="32" height="36"/>
+  <object id="673" name="orc_shaman" gid="325" x="16" y="48" width="16" height="23"/>
+  <object id="674" name="orc_warrior" gid="326" x="0" y="48" width="16" height="23"/>
+  <object id="675" name="pumpkin_dude" gid="327" x="80" y="64" width="16" height="23"/>
   <object id="676" name="slug" gid="330" x="64" y="16" width="16" height="23"/>
   <object id="677" name="swampy" gid="331" x="0" y="16" width="16" height="16"/>
   <object id="678" name="tiny_slug" gid="332" x="48" y="16" width="16" height="16"/>
-  <object id="679" name="tiny_zombie" gid="333" x="48" y="144" width="16" height="16"/>
-  <object id="680" name="wogol" gid="363" x="0" y="208" width="16" height="23"/>
-  <object id="681" name="zombie" gid="364" x="16" y="144" width="16" height="16"/>
+  <object id="679" name="tiny_zombie" gid="333" x="48" y="80" width="16" height="16"/>
+  <object id="680" name="wogol" gid="363" x="0" y="112" width="16" height="23"/>
+  <object id="681" name="zombie" gid="364" x="16" y="80" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="7" name="items">
   <object id="33" name="door" gid="449" x="208" y="80" width="32" height="32">

@@ -60,7 +60,7 @@ export class Preloader extends Phaser.Scene {
 
 		this.setupAnimations();
 		this.scene.start(SCENES.gameUi);
-		this.scene.start(SCENES.levelDemo);
+		this.scene.start(SCENES.level01);
 	}
 
 	setupAnimations() {

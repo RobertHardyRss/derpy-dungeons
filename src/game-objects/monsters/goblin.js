@@ -1,9 +1,9 @@
 import { MonsterFullAnimation } from "./base-classes/monster-full-animation";
 import { MONSTERS } from "../../constants";
 
-export class Skeleton extends MonsterFullAnimation {
+export class Goblin extends MonsterFullAnimation {
 	constructor(scene, x, y) {
-		super(scene, x, y, MONSTERS.skeleton);
+		super(scene, x, y, MONSTERS.goblin);
 
 		this.hitPoints = 5;
 		this.xp = 10;
@@ -11,7 +11,7 @@ export class Skeleton extends MonsterFullAnimation {
 		this.strength = 5;
 
 		// adjust hitbox
-		this.setSize(this.width * 0.5, this.height * 0.8);
-		this.setOffset(4, 3);
+		this.setSize(this.width * 0.5, this.height * 0.7);
+		this.setOffset(5, 6);
 	}
 }

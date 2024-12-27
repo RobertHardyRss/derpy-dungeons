@@ -1,5 +1,5 @@
-export const DEBUG = true;
-export const DEBUG_DISABLE_MONSTER_MOVEMENT = true;
+export const DEBUG = false;
+export const DEBUG_DISABLE_MONSTER_MOVEMENT = false;
 
 export const PLAYER_DAMAGE_COOLDOWN = 250;
 

@@ -1,9 +1,9 @@
 import { MonsterFullAnimation } from "./base-classes/monster-full-animation";
 import { MONSTERS } from "../../constants";
 
-export class BigZombie extends MonsterFullAnimation {
+export class Ogre extends MonsterFullAnimation {
 	constructor(scene, x, y) {
-		super(scene, x, y, MONSTERS.bigZombie);
+		super(scene, x, y, MONSTERS.ogre);
 
 		this.hitPoints = 100;
 		this.xp = 200;
